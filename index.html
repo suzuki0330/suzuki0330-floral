@@ -6,311 +6,540 @@
   <title>鈴木未沙</title>
   <meta name="description" content="病院広報・SDGs・地域共創をテーマに活動。病院ファンづくり甲子園優勝、全国ワークスタイル変革大賞大賞など、医療と地域をつなぐ取り組みを発信しています。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --rose:       #c8748a;
-      --rose-light: #e8a0b4;
-      --rose-pale:  #fde8ef;
-      --sage:       #7a9e7e;
-      --sage-light: #a8c5aa;
-      --sage-pale:  #eef5ee;
-      --cream:      #fdf6f0;
-      --ivory:      #fefaf6;
-      --gold:       #c9956c;
-      --gold-light: #e0b898;
-      --charcoal:   #3d2c2c;
-      --gray-mid:   #7a6060;
-      --border:     #f0dde5;
-      --white:      #ffffff;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans JP', sans-serif; color: var(--charcoal); line-height: 1.8; background: var(--ivory); }
 
-    /* ===== FLOWER DECORATIONS ===== */
-    .flower-divider {
-      text-align: center; color: var(--rose-light);
-      font-size: 1.2rem; letter-spacing: 0.5rem;
-      margin: 0 0 48px;
-      opacity: 0.7;
+    :root {
+      --sage:        #7a9e7e;
+      --sage-mid:    #5a7d5e;
+      --sage-pale:   #eef5ee;
+      --sage-wash:   #d4e6d5;
+      --dusty-rose:  #c4867a;
+      --rose-pale:   #f5e8e5;
+      --gold:        #c9a84c;
+      --gold-light:  #e0c878;
+      --cream:       #faf7f2;
+      --ivory:       #fefcf8;
+      --warm-white:  #fffdf9;
+      --charcoal:    #3a3028;
+      --gray-warm:   #6e6258;
+      --gray-light:  #a09588;
+      --border:      #e8dfd6;
     }
-    .petal-bg {
-      position: absolute; pointer-events: none; opacity: 0.06;
-      font-size: 8rem; line-height: 1;
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--charcoal);
+      line-height: 1.8;
+      background: var(--ivory);
     }
+
+    /* ===== 水彩スプラッシュ装飾 ===== */
+    .wc-splash {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      opacity: 0;
+      animation: wc-fade-in 1.2s ease forwards;
+    }
+    @keyframes wc-fade-in { to { opacity: 1; } }
 
     /* ===== NAV ===== */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(253,246,240,0.96); backdrop-filter: blur(12px);
+      background: rgba(254,252,248,0.95);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0 48px; height: 64px;
+      padding: 0 52px; height: 68px;
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--rose); font-size: 1.2rem; font-weight: 600;
-      letter-spacing: 0.1em; text-decoration: none;
+      display: flex; align-items: baseline; gap: 10px; text-decoration: none;
     }
-    .nav-logo span { font-size: 0.75rem; color: var(--gray-mid); font-family: 'Noto Sans JP', sans-serif; font-weight: 300; margin-left: 8px; letter-spacing: 0.05em; }
+    .nav-logo-script {
+      font-family: 'Great Vibes', cursive;
+      color: var(--sage-mid); font-size: 1.6rem; line-height: 1;
+    }
+    .nav-logo-jp {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--gray-warm); font-size: 0.8rem; letter-spacing: 0.1em;
+    }
     .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a { color: var(--gray-mid); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--rose); }
+    .nav-links a {
+      color: var(--gray-warm); text-decoration: none;
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage-mid); }
 
     /* ===== HERO ===== */
     .hero {
-      min-height: 100vh; padding-top: 64px;
-      background: linear-gradient(135deg, #fff5f8 0%, #fdf6f0 40%, #f5f0f8 100%);
+      min-height: 100vh;
+      padding-top: 68px;
+      background: var(--ivory);
       position: relative; overflow: hidden;
-      display: flex; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr;
     }
-    .hero::before {
-      content: '🌸'; position: absolute; top: 8%; right: 5%; font-size: 12rem; opacity: 0.07; transform: rotate(20deg);
+    /* 水彩にじみ背景 */
+    .hero-splash-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(122,158,126,0.28) 0%, rgba(122,158,126,0.06) 60%, transparent 75%);
+      top: -100px; right: -100px;
+      animation-delay: 0s;
     }
-    .hero::after {
-      content: '🌿'; position: absolute; bottom: 5%; left: 2%; font-size: 10rem; opacity: 0.07; transform: rotate(-15deg);
+    .hero-splash-2 {
+      width: 400px; height: 350px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.18) 0%, rgba(201,168,76,0.05) 60%, transparent 75%);
+      bottom: 0; left: 10%;
+      animation-delay: 0.3s;
     }
-    .hero-inner {
-      max-width: 1100px; margin: 0 auto; padding: 60px 48px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    .hero-splash-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(196,134,122,0.15) 0%, rgba(196,134,122,0.04) 60%, transparent 75%);
+      top: 30%; left: 5%;
+      animation-delay: 0.6s;
     }
-    .hero-content {}
-    .hero-flower { color: var(--rose-light); font-size: 1.4rem; letter-spacing: 0.3rem; margin-bottom: 20px; }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 56px 80px 72px;
+      position: relative; z-index: 1;
+    }
+    .hero-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      color: var(--sage); margin-bottom: 12px;
+      line-height: 1.4;
+    }
     .hero-name {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
-      font-weight: 600; color: var(--charcoal); line-height: 1.3; margin-bottom: 4px;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 600; color: var(--charcoal);
+      line-height: 1.2; margin-bottom: 6px;
     }
     .hero-name-en {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; color: var(--rose); letter-spacing: 0.2em;
-      margin-bottom: 28px; font-style: italic;
+      font-size: 1rem; color: var(--gold);
+      letter-spacing: 0.25em; font-style: italic;
+      margin-bottom: 32px;
     }
-    .hero-line {
-      width: 60px; height: 2px;
-      background: linear-gradient(90deg, var(--rose), var(--rose-light));
+    .hero-wc-line {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, var(--sage-wash), var(--sage), transparent);
       margin-bottom: 28px; border-radius: 2px;
     }
-    .hero-tagline { font-size: 1.05rem; line-height: 2.1; color: var(--gray-mid); margin-bottom: 32px; }
+    .hero-tagline {
+      font-size: 1rem; line-height: 2.1;
+      color: var(--gray-warm); margin-bottom: 32px;
+    }
     .hero-awards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
     .hero-award {
-      display: flex; align-items: center; gap: 10px;
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 40px; padding: 8px 18px;
-      box-shadow: 0 2px 12px rgba(200,116,138,0.08);
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,253,249,0.9);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 9px 16px;
+      backdrop-filter: blur(4px);
     }
-    .hero-award-icon { font-size: 1rem; }
     .hero-award-text { font-size: 0.8rem; color: var(--charcoal); }
-    .hero-award-text strong { color: var(--rose); }
+    .hero-award-text strong { color: var(--sage-mid); }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .hero-tag {
-      background: var(--rose-pale); color: var(--rose);
-      font-size: 0.75rem; padding: 4px 14px; border-radius: 20px;
-      border: 1px solid var(--border);
+      background: var(--sage-pale); color: var(--sage-mid);
+      font-size: 0.72rem; padding: 4px 14px;
+      border-radius: 20px; border: 1px solid var(--sage-wash);
     }
-    .hero-photo-wrap { position: relative; }
+    .hero-right {
+      position: relative; overflow: hidden; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 60px;
+    }
+    .hero-photo-outer {
+      position: relative;
+    }
+    .hero-photo-bg {
+      position: absolute; inset: -20px;
+      background: radial-gradient(ellipse, rgba(122,158,126,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(20px);
+    }
     .hero-photo-frame {
-      border-radius: 50% 40% 50% 40% / 40% 50% 40% 50%;
-      overflow: hidden; aspect-ratio: 1;
-      box-shadow: 0 20px 60px rgba(200,116,138,0.2);
-      border: 4px solid var(--rose-pale);
+      width: min(400px, 85%);
+      aspect-ratio: 3/4;
+      border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
+      overflow: hidden;
+      box-shadow:
+        0 20px 60px rgba(58,48,40,0.12),
+        0 0 0 8px rgba(254,252,248,0.8),
+        0 0 0 12px var(--sage-wash);
+      position: relative; z-index: 1;
     }
-    .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    .hero-deco-1 { position: absolute; top: -20px; right: -10px; font-size: 3rem; opacity: 0.4; animation: float 4s ease-in-out infinite; }
-    .hero-deco-2 { position: absolute; bottom: -10px; left: -20px; font-size: 2.5rem; opacity: 0.35; animation: float 5s ease-in-out infinite 1s; }
-    .hero-deco-3 { position: absolute; top: 40%; right: -30px; font-size: 2rem; opacity: 0.3; animation: float 3.5s ease-in-out infinite 0.5s; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero-photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    /* 水彩ボタニカル装飾（CSS描画） */
+    .hero-botanical {
+      position: absolute; pointer-events: none; z-index: 2;
+    }
+    .herb-1 { top: 5%; right: 0; width: 120px; opacity: 0.5; }
+    .herb-2 { bottom: 8%; left: -10px; width: 100px; opacity: 0.45; transform: rotate(180deg) scaleX(-1); }
 
     /* ===== SECTION COMMON ===== */
-    section { padding: 96px 0; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-    .section-eyebrow {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem; letter-spacing: 0.3em; color: var(--rose);
-      text-transform: uppercase; margin-bottom: 8px; font-style: italic;
+    section { padding: 100px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 52px; }
+    .section-header { margin-bottom: 52px; }
+    .section-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.4rem; color: var(--sage);
+      margin-bottom: 4px; line-height: 1.4;
     }
     .section-title {
       font-family: 'Noto Serif JP', serif;
       font-size: clamp(1.5rem, 2.5vw, 2rem);
       color: var(--charcoal); margin-bottom: 12px; font-weight: 600;
     }
-    .section-lead { color: var(--gray-mid); font-size: 0.93rem; max-width: 600px; margin-bottom: 48px; line-height: 1.9; }
+    .section-lead { color: var(--gray-warm); font-size: 0.92rem; max-width: 620px; line-height: 1.9; }
+    .wc-divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 16px 0 0; max-width: 280px;
+    }
+    .wc-divider-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--sage-wash), transparent);
+    }
+    .wc-divider-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold);
+    }
 
     /* ===== PROFILE ===== */
-    .profile-section { background: var(--white); position: relative; overflow: hidden; }
-    .profile-section::before { content: '🌷'; position: absolute; top: 5%; right: 3%; font-size: 9rem; opacity: 0.05; }
-    .profile-grid { display: grid; grid-template-columns: 320px 1fr; gap: 64px; align-items: start; }
-    .profile-photo { border-radius: 20px; overflow: hidden; box-shadow: 0 16px 48px rgba(200,116,138,0.15); }
+    .profile-section {
+      background: var(--warm-white);
+      position: relative; overflow: hidden;
+    }
+    .profile-wc-1 {
+      width: 450px; height: 400px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, transparent 65%);
+      top: -80px; right: -80px; animation-delay: 0.2s;
+    }
+    .profile-wc-2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(122,158,126,0.1) 0%, transparent 65%);
+      bottom: -60px; left: -40px; animation-delay: 0.4s;
+    }
+    .profile-grid { display: grid; grid-template-columns: 300px 1fr; gap: 72px; align-items: start; }
+    .profile-photo-wrap { position: sticky; top: 80px; }
+    .profile-photo {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(58,48,40,0.1);
+      border: 3px solid var(--cream);
+    }
     .profile-photo img { width: 100%; display: block; }
-    .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .profile-tag { background: var(--rose-pale); color: var(--rose); font-size: 0.72rem; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
-    .profile-body h3 { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--rose); margin: 28px 0 10px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-    .profile-body h3::before { content: '✦'; font-size: 0.7rem; }
+    .profile-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .profile-tag {
+      background: var(--sage-pale); color: var(--sage-mid);
+      font-size: 0.7rem; padding: 3px 12px;
+      border-radius: 20px; border: 1px solid var(--sage-wash);
+    }
+    .profile-body h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.95rem; color: var(--sage-mid);
+      margin: 28px 0 10px; font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .profile-body h3::before {
+      content: ''; display: inline-block;
+      width: 16px; height: 1px;
+      background: var(--sage-wash);
+    }
     .profile-body h3:first-child { margin-top: 0; }
-    .profile-body p { color: var(--gray-mid); line-height: 2; margin-bottom: 12px; font-size: 0.93rem; }
+    .profile-body p { color: var(--gray-warm); line-height: 2; margin-bottom: 12px; font-size: 0.92rem; }
     .profile-info-grid { display: flex; flex-direction: column; gap: 10px; }
     .profile-info-item { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: baseline; }
-    .pi-label { font-size: 0.72rem; color: var(--rose); font-weight: 700; white-space: nowrap; }
-    .pi-value { font-size: 0.86rem; color: var(--gray-mid); line-height: 1.7; }
-    .career-timeline { position: relative; padding-left: 16px; margin-top: 16px; }
-    .career-timeline::before { content:''; position:absolute; left:50px; top:8px; bottom:8px; width:2px; background: linear-gradient(180deg, var(--rose-light), var(--rose-pale)); }
-    .ct-item { display:grid; grid-template-columns:50px 1fr; gap:16px; align-items:start; padding:10px 0; position:relative; }
-    .ct-item::before { content:''; position:absolute; left:43px; top:16px; width:10px; height:10px; border-radius:50%; background:var(--white); border:2px solid var(--rose-light); }
-    .ct-current::before { border-color:var(--rose); background:var(--rose); }
-    .ct-year { font-size:0.78rem; font-weight:700; color:var(--rose); padding-top:2px; white-space:nowrap; }
-    .ct-text { font-size:0.85rem; color:var(--gray-mid); line-height:1.7; }
-    .profile-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
-    .profile-link { display:inline-flex; align-items:center; gap:6px; color:var(--rose); font-size:0.82rem; text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px; transition:all 0.2s; }
-    .profile-link:hover { border-color:var(--rose); }
+    .pi-label { font-size: 0.7rem; color: var(--gold); font-weight: 700; white-space: nowrap; letter-spacing: 0.05em; }
+    .pi-value { font-size: 0.86rem; color: var(--gray-warm); line-height: 1.7; }
+    .career-timeline { position: relative; margin-top: 16px; }
+    .career-timeline::before {
+      content: ''; position: absolute; left: 48px; top: 10px; bottom: 10px; width: 1px;
+      background: linear-gradient(180deg, var(--sage-wash), var(--border));
+    }
+    .ct-item { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; padding: 10px 0; position: relative; }
+    .ct-item::before {
+      content: ''; position: absolute; left: 41px; top: 16px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--ivory); border: 1.5px solid var(--sage-wash);
+    }
+    .ct-current::before { border-color: var(--gold); background: var(--gold); }
+    .ct-year { font-size: 0.75rem; font-weight: 700; color: var(--sage-mid); padding-top: 2px; white-space: nowrap; }
+    .ct-current .ct-year { color: var(--gold); }
+    .ct-text { font-size: 0.84rem; color: var(--gray-warm); line-height: 1.75; }
+    .profile-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .profile-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--sage-mid); font-size: 0.8rem; text-decoration: none;
+      padding: 5px 14px; border-radius: 20px;
+      border: 1px solid var(--sage-wash);
+      background: var(--sage-pale);
+      transition: all 0.2s;
+    }
+    .profile-link:hover { background: var(--sage); color: white; border-color: var(--sage); }
 
     /* ===== AWARDS ===== */
-    .awards-section { background: linear-gradient(135deg, #fff8f9 0%, #fdf6f0 100%); position: relative; overflow: hidden; }
-    .awards-section::after { content: '🌸'; position: absolute; bottom: 5%; right: 5%; font-size: 9rem; opacity: 0.06; }
-    .awards-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
+    .awards-section {
+      background: var(--cream);
+      position: relative; overflow: hidden;
+    }
+    .awards-wc-1 {
+      width: 500px; height: 400px;
+      background: radial-gradient(ellipse, rgba(122,158,126,0.14) 0%, transparent 65%);
+      top: -60px; left: -80px; animation-delay: 0.1s;
+    }
+    .awards-wc-2 {
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+      bottom: -40px; right: -60px; animation-delay: 0.5s;
+    }
+    .awards-list { display: flex; flex-direction: column; max-width: 880px; position: relative; z-index: 1; }
     .award-row {
-      display: grid; grid-template-columns: 96px 48px 1fr auto;
+      display: grid; grid-template-columns: 88px 44px 1fr auto;
       gap: 0 20px; align-items: center;
-      padding: 20px 24px; background: var(--white);
+      padding: 20px 28px; background: var(--warm-white);
       border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-      border-radius: 0;
+      transition: background 0.25s;
     }
     .award-row:first-child { border-radius: 16px 16px 0 0; }
     .award-row:last-child { border-radius: 0 0 16px 16px; border-bottom: none; }
-    .award-row:hover { background: var(--rose-pale); }
-    .award-year-col { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--rose); font-weight: 600; }
-    .award-icon-col { font-size: 1.4rem; text-align: center; }
-    .award-name { font-size: 0.93rem; color: var(--charcoal); font-weight: 500; line-height: 1.5; }
-    .award-org { font-size: 0.75rem; color: var(--gray-mid); margin-top: 2px; }
-    .award-link-col a { font-size: 0.75rem; color: var(--rose); text-decoration: none; white-space: nowrap; }
-    .award-link-col a:hover { opacity: 0.7; }
+    .award-row:hover { background: var(--sage-pale); }
+    .award-year-col {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--gold); font-weight: 600;
+    }
+    .award-icon-col { font-size: 1.3rem; text-align: center; }
+    .award-name { font-size: 0.92rem; color: var(--charcoal); font-weight: 500; line-height: 1.5; }
+    .award-org { font-size: 0.73rem; color: var(--gray-light); margin-top: 2px; }
+    .award-link-col a { font-size: 0.74rem; color: var(--sage-mid); text-decoration: none; white-space: nowrap; }
+    .award-link-col a:hover { color: var(--gold); }
 
     /* ===== ACHIEVEMENTS ===== */
-    .achievements { background: var(--cream); position: relative; overflow: hidden; }
-    .achievements::before { content: '🌼'; position: absolute; top: 3%; left: 1%; font-size: 8rem; opacity: 0.06; }
-    .year-block { margin-bottom: 64px; }
+    .achievements {
+      background: var(--ivory);
+      position: relative; overflow: hidden;
+    }
+    .achiev-wc-1 {
+      width: 500px; height: 450px;
+      background: radial-gradient(ellipse, rgba(196,134,122,0.1) 0%, transparent 65%);
+      top: 5%; right: -80px; animation-delay: 0.2s;
+    }
+    .year-block { margin-bottom: 72px; position: relative; z-index: 1; }
     .year-label {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem; color: var(--sage-wash);
+      margin-bottom: 28px; line-height: 1;
+    }
+    .year-label span {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem; font-weight: 600;
-      color: var(--rose-light); border-bottom: 1px solid var(--border);
-      padding-bottom: 12px; margin-bottom: 28px;
+      font-size: 1.6rem; color: var(--sage-mid);
+      margin-left: 8px; vertical-align: middle;
     }
     .achiev-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
     .achiev-card {
       border-radius: 16px; overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 4px 20px rgba(200,116,138,0.08);
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(58,48,40,0.06);
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex; flex-direction: column;
-      border: 1px solid var(--border);
     }
-    .achiev-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(200,116,138,0.16); }
+    .achiev-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(58,48,40,0.1);
+    }
     .achiev-card.full-width { grid-column: 1/-1; }
-    .achiev-photo { width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center; display:block; background:#f8f0f3; }
+    .achiev-photo {
+      width: 100%; aspect-ratio: 16/9;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
     .achiev-body { padding: 22px 24px; flex: 1; }
     .achiev-badge {
       display: inline-flex; align-items: center; gap: 6px;
-      background: var(--rose-pale); color: var(--rose);
-      font-size: 0.72rem; padding: 4px 14px; border-radius: 20px;
-      margin-bottom: 10px; font-weight: 500; border: 1px solid var(--border);
+      background: var(--sage-pale); color: var(--sage-mid);
+      font-size: 0.7rem; padding: 3px 12px; border-radius: 20px;
+      margin-bottom: 10px; border: 1px solid var(--sage-wash);
     }
-    .achiev-title { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--charcoal); font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
-    .achiev-desc { font-size: 0.82rem; color: var(--gray-mid); line-height: 1.8; margin-bottom: 10px; }
-    .achiev-link { font-size: 0.76rem; color: var(--rose); text-decoration: none; }
-    .achiev-link:hover { opacity: 0.7; }
+    .achiev-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.98rem; color: var(--charcoal);
+      font-weight: 600; margin-bottom: 8px; line-height: 1.55;
+    }
+    .achiev-desc { font-size: 0.82rem; color: var(--gray-warm); line-height: 1.8; margin-bottom: 10px; }
+    .achiev-link { font-size: 0.75rem; color: var(--sage-mid); text-decoration: none; }
+    .achiev-link:hover { color: var(--gold); }
 
     /* ===== SPEAKING ===== */
-    .speaking { background: linear-gradient(135deg, #fde8ef 0%, #f5eef8 50%, #eef5ee 100%); position: relative; overflow: hidden; }
-    .speaking::after { content: '🌺'; position: absolute; top: 5%; right: 3%; font-size: 9rem; opacity: 0.12; }
-    .speaking-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .speaking-card {
-      background: rgba(255,255,255,0.85); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      backdrop-filter: blur(4px);
+    .speaking {
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, var(--sage-pale) 0%, var(--cream) 50%, #f8f3ee 100%);
     }
-    .speaking-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(200,116,138,0.15); }
-    .speaking-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--rose-light); font-weight: 600; margin-bottom: 10px; }
-    .speaking-theme { font-size: 0.93rem; color: var(--charcoal); font-weight: 700; margin-bottom: 8px; line-height: 1.5; }
-    .speaking-desc { font-size: 0.8rem; color: var(--gray-mid); line-height: 1.7; }
+    .speaking-wc-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(122,158,126,0.2) 0%, transparent 65%);
+      top: -100px; right: -100px; animation-delay: 0s;
+    }
+    .speaking-wc-2 {
+      width: 400px; height: 350px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, transparent 65%);
+      bottom: -50px; left: -50px; animation-delay: 0.4s;
+    }
+    .speaking-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; position: relative; z-index: 1; }
+    .speaking-card {
+      background: rgba(255,253,249,0.85);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(8px);
+    }
+    .speaking-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(58,48,40,0.1); }
+    .speaking-num {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.4rem; color: var(--sage-wash); font-weight: 400; margin-bottom: 12px; line-height: 1;
+    }
+    .speaking-theme { font-size: 0.93rem; color: var(--charcoal); font-weight: 700; margin-bottom: 10px; line-height: 1.5; }
+    .speaking-desc { font-size: 0.8rem; color: var(--gray-warm); line-height: 1.75; }
 
     /* ===== MEDIA ===== */
-    .media-section { background: var(--white); }
-    .media-table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(200,116,138,0.08); }
-    .media-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-    .media-table th { background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%); color: var(--white); padding: 14px 20px; text-align: left; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; }
-    .media-table th:first-child { border-radius: 0; }
-    .media-table td { padding: 12px 20px; border-bottom: 1px solid #fce8ef; vertical-align: middle; }
-    .media-table tr:nth-child(even) td { background: #fff8fa; }
-    .media-table tr:hover td { background: var(--rose-pale); }
-    .media-table a { color: var(--rose); text-decoration: none; font-size: 0.78rem; }
-    .media-badge { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 10px; }
-    .badge-news { background: #fde8ef; color: var(--rose); }
-    .badge-tv { background: #fde8d8; color: #8b3a00; }
-    .badge-radio { background: var(--sage-pale); color: var(--sage); }
-    .badge-web { background: #f0e8f8; color: #6a3a8b; }
-    .badge-award { background: #fdf8e8; color: #8b7000; }
-
-    /* ===== PROJECTS ===== */
-    .projects { background: var(--cream); position: relative; overflow: hidden; }
-    .projects::before { content: '🌿'; position: absolute; bottom: 5%; left: 2%; font-size: 8rem; opacity: 0.08; }
-    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-    .project-card {
-      border-radius: 20px; overflow: hidden; background: var(--white);
-      box-shadow: 0 4px 20px rgba(200,116,138,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
+    .media-section { background: var(--warm-white); }
+    .media-table-wrap {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(58,48,40,0.07);
       border: 1px solid var(--border);
     }
-    .project-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(200,116,138,0.16); }
-    .project-img { width: 100%; height: 200px; object-fit: cover; }
+    .media-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+    .media-table th {
+      background: var(--sage-mid); color: white;
+      padding: 14px 20px; text-align: left;
+      font-weight: 400; font-size: 0.76rem; letter-spacing: 0.1em;
+    }
+    .media-table td { padding: 11px 20px; border-bottom: 1px solid #f0e8e0; vertical-align: middle; }
+    .media-table tr:nth-child(even) td { background: #faf7f4; }
+    .media-table tr:hover td { background: var(--sage-pale); }
+    .media-table a { color: var(--sage-mid); text-decoration: none; font-size: 0.76rem; }
+    .media-table a:hover { color: var(--gold); }
+    .media-badge { display: inline-block; font-size: 0.68rem; padding: 2px 9px; border-radius: 10px; }
+    .badge-news  { background: #f0ebe5; color: var(--gray-warm); }
+    .badge-tv    { background: #f5ede5; color: #7a5030; }
+    .badge-radio { background: var(--sage-pale); color: var(--sage-mid); }
+    .badge-web   { background: #edeaf5; color: #5a4a7a; }
+    .badge-award { background: #f5f0e0; color: #7a6020; }
+
+    /* ===== PROJECTS ===== */
+    .projects {
+      background: var(--cream);
+      position: relative; overflow: hidden;
+    }
+    .projects-wc-1 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(196,134,122,0.1) 0%, transparent 65%);
+      top: -60px; left: -60px; animation-delay: 0.3s;
+    }
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; position: relative; z-index: 1; }
+    .project-card {
+      border-radius: 20px; overflow: hidden;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(58,48,40,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(58,48,40,0.12); }
+    .project-img { width: 100%; height: 200px; object-fit: cover; display: block; }
     .project-body { padding: 24px; }
-    .project-tag { display: inline-block; background: var(--sage-pale); color: var(--sage); font-size: 0.7rem; padding: 3px 10px; border-radius: 10px; margin-bottom: 10px; font-weight: 500; }
-    .project-title { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--charcoal); font-weight: 600; margin-bottom: 10px; line-height: 1.5; }
-    .project-desc { font-size: 0.82rem; color: var(--gray-mid); line-height: 1.75; margin-bottom: 16px; }
-    .project-link { display: inline-block; font-size: 0.78rem; color: var(--rose); text-decoration: none; border: 1px solid var(--border); padding: 6px 16px; border-radius: 20px; transition: all 0.2s; }
-    .project-link:hover { background: var(--rose); color: var(--white); border-color: var(--rose); }
+    .project-tag {
+      display: inline-block; background: var(--sage-pale); color: var(--sage-mid);
+      font-size: 0.68rem; padding: 3px 10px; border-radius: 10px;
+      margin-bottom: 10px; border: 1px solid var(--sage-wash);
+    }
+    .project-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem; color: var(--charcoal); font-weight: 600; margin-bottom: 10px; line-height: 1.5;
+    }
+    .project-desc { font-size: 0.8rem; color: var(--gray-warm); line-height: 1.8; margin-bottom: 16px; }
+    .project-link {
+      display: inline-block; font-size: 0.76rem; color: var(--sage-mid);
+      text-decoration: none; border: 1px solid var(--sage-wash);
+      padding: 6px 16px; border-radius: 20px;
+      background: var(--sage-pale);
+      transition: all 0.2s;
+    }
+    .project-link:hover { background: var(--sage-mid); color: white; border-color: var(--sage-mid); }
 
     /* ===== CONTACT ===== */
     .contact-section {
-      background: linear-gradient(135deg, #fde8ef 0%, #f8f0f8 50%, #eef5ee 100%);
-      position: relative; overflow: hidden; text-align: center;
+      position: relative; overflow: hidden;
+      background: var(--ivory);
     }
-    .contact-section::before { content: '🌸🌷🌸'; position: absolute; top: 10%; left: 50%; transform: translateX(-50%); font-size: 3rem; opacity: 0.12; letter-spacing: 1rem; }
-    .contact-inner { max-width: 560px; margin: 0 auto; }
-    .contact-inner .section-title { color: var(--charcoal); }
-    .contact-inner .section-lead { margin: 0 auto 36px; text-align: center; max-width: 100%; }
+    .contact-wc-1 {
+      width: 600px; height: 500px;
+      background: radial-gradient(ellipse, rgba(122,158,126,0.18) 0%, transparent 65%);
+      top: -100px; left: 50%; transform: translateX(-50%);
+      animation-delay: 0s;
+    }
+    .contact-wc-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 65%);
+      bottom: -80px; right: 10%; animation-delay: 0.3s;
+    }
+    .contact-inner { text-align: center; max-width: 520px; margin: 0 auto; position: relative; z-index: 1; }
+    .contact-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem; color: var(--sage); margin-bottom: 8px;
+    }
+    .contact-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.5rem; color: var(--charcoal); margin-bottom: 20px;
+    }
+    .contact-lead { color: var(--gray-warm); font-size: 0.9rem; line-height: 1.9; margin-bottom: 40px; }
     .contact-btn {
       display: inline-block;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
-      color: var(--white); padding: 16px 52px; border-radius: 40px;
-      text-decoration: none; font-size: 0.9rem; font-weight: 500;
-      letter-spacing: 0.1em;
-      box-shadow: 0 8px 24px rgba(200,116,138,0.3);
+      background: var(--sage-mid); color: white;
+      padding: 16px 52px; border-radius: 40px;
+      text-decoration: none; font-size: 0.88rem;
+      letter-spacing: 0.12em; font-weight: 500;
+      box-shadow: 0 8px 28px rgba(90,125,94,0.28);
       transition: all 0.3s;
     }
-    .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(200,116,138,0.4); }
+    .contact-btn:hover {
+      background: var(--sage);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(90,125,94,0.36);
+    }
 
     footer {
-      background: var(--charcoal); color: rgba(255,255,255,0.4);
-      text-align: center; padding: 32px; font-size: 0.78rem; letter-spacing: 0.06em;
+      background: var(--charcoal); color: rgba(255,255,255,0.38);
+      text-align: center; padding: 32px; font-size: 0.76rem; letter-spacing: 0.08em;
     }
-    footer span { color: var(--rose-light); }
+    footer em { color: rgba(201,168,76,0.6); font-style: normal; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .hero-photo-frame { max-width: 300px; margin: 0 auto; }
-      .profile-grid { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { padding: 40px 48px 60px; order: -1; }
+      .hero-photo-frame { width: min(280px,70%); margin: 0 auto; }
+      .hero-left { padding: 48px 40px; }
+      .profile-grid { grid-template-columns: 1fr; gap: 40px; }
+      .profile-photo-wrap { position: static; }
       .achiev-cards, .speaking-grid, .projects-grid { grid-template-columns: repeat(2,1fr); }
       .container { padding: 0 28px; }
       nav { padding: 0 24px; }
+      .award-row { grid-template-columns: 70px 36px 1fr; }
+      .award-link-col { display: none; }
     }
     @media (max-width: 640px) {
       .achiev-cards, .speaking-grid, .projects-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
-      .award-row { grid-template-columns: 60px 32px 1fr; }
-      .award-link-col { display: none; }
     }
   </style>
 </head>
@@ -318,72 +547,80 @@
 
 <!-- ナビ -->
 <nav>
-  <a href="#" class="nav-logo">鈴木 未沙 <span>Misa Suzuki</span></a>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-script">Misa Suzuki</span>
+    <span class="nav-logo-jp">鈴木 未沙</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="#profile">プロフィール</a></li>
-    <li><a href="#awards">受賞歴</a></li>
-    <li><a href="#achievements">実績</a></li>
-    <li><a href="#speaking">講演・登壇</a></li>
-    <li><a href="#media">メディア</a></li>
-    <li><a href="#projects">プロジェクト</a></li>
-    <li><a href="#contact">お問い合わせ</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-flower">✿ ✾ ✿</div>
-      <h1 class="hero-name">鈴木 未沙</h1>
-      <p class="hero-name-en">Misa Suzuki</p>
-      <div class="hero-line"></div>
-      <p class="hero-tagline">
-        病院広報 × SDGs × 地域共創<br>
-        医療・介護の枠を超え、<br>
-        地域・学校・企業との共創を通じて<br>
-        「病院ファンづくり」に取り組んでいます。
-      </p>
-      <div class="hero-awards">
-        <div class="hero-award">
-          <span class="hero-award-icon">🏆</span>
-          <span class="hero-award-text"><strong>病院ファンづくり甲子園 優勝</strong>（2026）</span>
-        </div>
-        <div class="hero-award">
-          <span class="hero-award-icon">🏆</span>
-          <span class="hero-award-text"><strong>全国ワークスタイル変革大賞 大賞</strong>（2025）</span>
-        </div>
-        <div class="hero-award">
-          <span class="hero-award-icon">🏅</span>
-          <span class="hero-award-text"><strong>Loglass 経営管理DXアワード 審査員特別賞</strong>（2025）</span>
-        </div>
+  <div class="wc-splash hero-splash-1"></div>
+  <div class="wc-splash hero-splash-2"></div>
+  <div class="wc-splash hero-splash-3"></div>
+
+  <div class="hero-left">
+    <p class="hero-script">Hospital Branding & SDGs</p>
+    <h1 class="hero-name">鈴木 未沙</h1>
+    <p class="hero-name-en">Misa Suzuki</p>
+    <div class="hero-wc-line"></div>
+    <p class="hero-tagline">
+      病院広報 × SDGs × 地域共創<br>
+      医療・介護の枠を超え、<br>
+      地域・学校・企業との共創を通じて<br>
+      「病院ファンづくり」に取り組んでいます。
+    </p>
+    <div class="hero-awards">
+      <div class="hero-award">
+        <span>🏆</span>
+        <span class="hero-award-text"><strong>病院ファンづくり甲子園 優勝</strong>（2026）</span>
       </div>
-      <div class="hero-tags">
-        <span class="hero-tag">病院広報</span>
-        <span class="hero-tag">SDGs推進</span>
-        <span class="hero-tag">地域共創</span>
-        <span class="hero-tag">DX推進</span>
-        <span class="hero-tag">女性活躍</span>
-        <span class="hero-tag">MBA在学中</span>
-        <span class="hero-tag">ラジオパーソナリティ</span>
+      <div class="hero-award">
+        <span>🏆</span>
+        <span class="hero-award-text"><strong>全国ワークスタイル変革大賞 大賞</strong>（2025）</span>
+      </div>
+      <div class="hero-award">
+        <span>🏅</span>
+        <span class="hero-award-text"><strong>Loglass 経営管理DXアワード 審査員特別賞</strong>（2025）</span>
       </div>
     </div>
-    <div class="hero-photo-wrap">
+    <div class="hero-tags">
+      <span class="hero-tag">病院広報</span>
+      <span class="hero-tag">SDGs推進</span>
+      <span class="hero-tag">地域共創</span>
+      <span class="hero-tag">DX推進</span>
+      <span class="hero-tag">女性活躍</span>
+      <span class="hero-tag">MBA在学中</span>
+      <span class="hero-tag">ラジオパーソナリティ</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-outer">
+      <div class="hero-photo-bg"></div>
       <div class="hero-photo-frame">
-        <img src="images/profile-hero.jpg" alt="鈴木未沙プロフィール写真">
+        <img src="images/profile-hero.jpg" alt="鈴木未沙のプロフィール写真">
       </div>
-      <div class="hero-deco-1">🌸</div>
-      <div class="hero-deco-2">🌿</div>
-      <div class="hero-deco-3">🌷</div>
     </div>
   </div>
 </section>
 
 <!-- プロフィール -->
 <section class="profile-section" id="profile">
+  <div class="wc-splash profile-wc-1"></div>
+  <div class="wc-splash profile-wc-2"></div>
   <div class="container">
     <div class="profile-grid">
-      <div>
+      <div class="profile-photo-wrap">
         <div class="profile-photo">
           <img src="images/profile.jpg" alt="鈴木未沙">
         </div>
@@ -397,10 +634,12 @@
           <span class="profile-tag">ラジオパーソナリティ</span>
         </div>
       </div>
-      <div class="profile-body">
-        <p class="section-eyebrow">Profile</p>
-        <h2 class="section-title">プロフィール</h2>
-        <div class="flower-divider">— ✿ —</div>
+      <div class="profile-body" style="position:relative;z-index:1;">
+        <div class="section-header">
+          <p class="section-script">Profile</p>
+          <h2 class="section-title">プロフィール</h2>
+          <div class="wc-divider"><div class="wc-divider-line"></div><div class="wc-divider-dot"></div></div>
+        </div>
         <div class="profile-info-grid">
           <div class="profile-info-item"><span class="pi-label">出身</span><span class="pi-value">横浜生まれ愛知育ち、岐阜在住</span></div>
           <div class="profile-info-item"><span class="pi-label">資格</span><span class="pi-value">教員免許一種（小/中/高 英語）、キャリアコンサルタント、ファイナンシャル・プランニング技能士、保育士、簿記、G検定 etc</span></div>
@@ -432,57 +671,43 @@
 
 <!-- 受賞歴 -->
 <section class="awards-section" id="awards">
+  <div class="wc-splash awards-wc-1"></div>
+  <div class="wc-splash awards-wc-2"></div>
   <div class="container">
-    <p class="section-eyebrow">Awards</p>
-    <h2 class="section-title">受賞歴</h2>
-    <div class="flower-divider">— ✿ —</div>
+    <div class="section-header">
+      <p class="section-script">Awards</p>
+      <h2 class="section-title">受賞歴</h2>
+      <div class="wc-divider"><div class="wc-divider-line"></div><div class="wc-divider-dot"></div></div>
+    </div>
     <div class="awards-list">
       <div class="award-row">
         <div class="award-year-col">2026</div>
         <div class="award-icon-col">🏆</div>
-        <div>
-          <div class="award-name">病院ファンづくり甲子園 全国大会 優勝</div>
-          <div class="award-org">病院マーケティングサミットJAPAN</div>
-        </div>
+        <div><div class="award-name">病院ファンづくり甲子園 全国大会 優勝</div><div class="award-org">病院マーケティングサミットJAPAN</div></div>
         <div class="award-link-col"><a href="https://www.youtube.com/watch?v=S8SY177wojs" target="_blank" rel="noopener noreferrer">動画を見る →</a></div>
       </div>
       <div class="award-row">
         <div class="award-year-col">2025</div>
         <div class="award-icon-col">🏆</div>
-        <div>
-          <div class="award-name">全国ワークスタイル変革大賞2025 大賞（最高賞）</div>
-          <div class="award-org">一般社団法人日本デジタルトランスフォーメーション推進協会</div>
-        </div>
-        <div class="award-link-col">
-          <a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer">PR TIMES →</a>
-          ／ <a href="https://prtimes.jp/main/html/rd/p/000000329.000013602.html" target="_blank" rel="noopener noreferrer">Chatwork編 →</a>
-        </div>
+        <div><div class="award-name">全国ワークスタイル変革大賞2025 大賞（最高賞）</div><div class="award-org">一般社団法人日本デジタルトランスフォーメーション推進協会</div></div>
+        <div class="award-link-col"><a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer">PR TIMES →</a> ／ <a href="https://prtimes.jp/main/html/rd/p/000000329.000013602.html" target="_blank" rel="noopener noreferrer">Chatwork編 →</a></div>
       </div>
       <div class="award-row">
         <div class="award-year-col">2025</div>
         <div class="award-icon-col">🏅</div>
-        <div>
-          <div class="award-name">Loglass 経営管理DX Award 2025 審査員特別賞</div>
-          <div class="award-org">株式会社ログラス</div>
-        </div>
+        <div><div class="award-name">Loglass 経営管理DX Award 2025 審査員特別賞</div><div class="award-org">株式会社ログラス</div></div>
         <div class="award-link-col"><a href="https://www.loglass.jp/keieikanri-dx-award/2025-winning-company#company05" target="_blank" rel="noopener noreferrer">詳細を見る →</a></div>
       </div>
       <div class="award-row">
         <div class="award-year-col">2025</div>
         <div class="award-icon-col">🌟</div>
-        <div>
-          <div class="award-name">ティーチミービスアワード 社会貢献賞</div>
-          <div class="award-org">（和光会グループとして受賞）</div>
-        </div>
+        <div><div class="award-name">ティーチミービスアワード 社会貢献賞</div><div class="award-org">（和光会グループとして受賞）</div></div>
         <div class="award-link-col"></div>
       </div>
       <div class="award-row">
         <div class="award-year-col">2024</div>
         <div class="award-icon-col">🥉</div>
-        <div>
-          <div class="award-name">病院ゆるキャラ総選挙2024 全国3位</div>
-          <div class="award-org">なごみちゃん・ひかるちゃん（m3.com主催）</div>
-        </div>
+        <div><div class="award-name">病院ゆるキャラ総選挙2024 全国3位</div><div class="award-org">なごみちゃん・ひかるちゃん（m3.com主催）</div></div>
         <div class="award-link-col"></div>
       </div>
     </div>
@@ -491,13 +716,16 @@
 
 <!-- 主な実績 -->
 <section class="achievements" id="achievements">
+  <div class="wc-splash achiev-wc-1"></div>
   <div class="container">
-    <p class="section-eyebrow">Achievements</p>
-    <h2 class="section-title">主な実績</h2>
-    <div class="flower-divider">— ✿ —</div>
+    <div class="section-header">
+      <p class="section-script">Achievements</p>
+      <h2 class="section-title">主な実績</h2>
+      <div class="wc-divider"><div class="wc-divider-line"></div><div class="wc-divider-dot"></div></div>
+    </div>
 
     <div class="year-block">
-      <div class="year-label">2026</div>
+      <div class="year-label">2026 <span>年の実績</span></div>
       <div class="achiev-cards">
         <div class="achiev-card full-width">
           <img src="images/achiev-fanzukuri-win.jpg" alt="病院ファンづくり甲子園優勝" class="achiev-photo">
@@ -508,121 +736,30 @@
             <a href="https://www.youtube.com/watch?v=S8SY177wojs" target="_blank" rel="noopener noreferrer" class="achiev-link">予選動画を見る →</a>
           </div>
         </div>
-        <div class="achiev-card">
-          <img src="images/gifusapo.png" alt="ぎふサポ" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">🎤 登壇 2026.4.24</span>
-            <h3 class="achiev-title">"人の役に立つ"だけじゃない。<br>医療・福祉の仕事がちょっと面白くなる話</h3>
-            <p class="achiev-desc">岐阜県若者サポートステーション（ぎふサポ）主催イベントに登壇。医療・福祉の仕事の魅力を若者に向けて発信。</p>
-            <a href="https://gifusapo.pref.gifu.lg.jp/" target="_blank" rel="noopener noreferrer" class="achiev-link">ぎふサポ掲載ページを見る →</a>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/gifuken.jpg" alt="岐阜県未来戦略会議委員" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">📋 委員任命 2026.4〜</span>
-            <h3 class="achiev-title">岐阜県未来戦略会議 委員 任命</h3>
-            <p class="achiev-desc">岐阜県より未来戦略会議の委員に任命。地域の未来づくりに向けた政策立案・議論に参画。</p>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/gifuken2.jpg" alt="岐阜県未来戦略会議委員2" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">📋 委員活動 2026.4〜</span>
-            <h3 class="achiev-title">岐阜県未来戦略会議 委員活動</h3>
-            <p class="achiev-desc">岐阜県の未来戦略について、医療・福祉・SDGs・地域共創の視点から積極的に提言・活動。</p>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/achiev-kakamigahara.png" alt="かかみがはらSDGsパートナー交流会" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">🎤 講演 2026.1.29</span>
-            <h3 class="achiev-title">第4回 かかみがはらSDGsパートナー交流会<br>和光会グループSDGs取り組み講演</h3>
-            <p class="achiev-desc">各務原市主催の交流会にて、SDGsパートナー企業・団体の皆さまを対象に和光会グループのSDGsの取り組みについて講演。</p>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/gifucity.JPEG" alt="岐阜市未来共創ワークショップ" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">🤝 ワークショップ 2026.1.25</span>
-            <h3 class="achiev-title">岐阜市未来共創ワークショップ</h3>
-            <p class="achiev-desc">地域企業・行政・学校が一堂に会する参加型ワークショップを主催。岐阜県各地でSDGsパートナー交流の場を創出。</p>
-          </div>
-        </div>
+        <div class="achiev-card"><img src="images/gifusapo.png" alt="ぎふサポ登壇" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">🎤 登壇 2026.4.24</span><h3 class="achiev-title">"人の役に立つ"だけじゃない。医療・福祉の仕事がちょっと面白くなる話</h3><p class="achiev-desc">岐阜県若者サポートステーション（ぎふサポ）主催イベントに登壇。医療・福祉の仕事の魅力を若者に向けて発信。</p><a href="https://gifusapo.pref.gifu.lg.jp/" target="_blank" rel="noopener noreferrer" class="achiev-link">ぎふサポ掲載ページを見る →</a></div></div>
+        <div class="achiev-card"><img src="images/gifuken.jpg" alt="岐阜県未来戦略会議委員" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">📋 委員任命 2026.4〜</span><h3 class="achiev-title">岐阜県未来戦略会議 委員 任命</h3><p class="achiev-desc">岐阜県より未来戦略会議の委員に任命。地域の未来づくりに向けた政策立案・議論に参画。</p></div></div>
+        <div class="achiev-card"><img src="images/gifuken2.jpg" alt="岐阜県未来戦略会議委員活動" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">📋 委員活動 2026.4〜</span><h3 class="achiev-title">岐阜県未来戦略会議 委員活動</h3><p class="achiev-desc">岐阜県の未来戦略について、医療・福祉・SDGs・地域共創の視点から積極的に提言・活動。</p></div></div>
+        <div class="achiev-card"><img src="images/achiev-kakamigahara.png" alt="かかみがはらSDGs交流会" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">🎤 講演 2026.1.29</span><h3 class="achiev-title">第4回 かかみがはらSDGsパートナー交流会</h3><p class="achiev-desc">各務原市主催の交流会にて、SDGsパートナー企業・団体の皆さまを対象に和光会グループのSDGsの取り組みについて講演。</p></div></div>
+        <div class="achiev-card"><img src="images/gifucity.JPEG" alt="岐阜市未来共創ワークショップ" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">🤝 ワークショップ 2026.1.25</span><h3 class="achiev-title">岐阜市未来共創ワークショップ</h3><p class="achiev-desc">地域企業・行政・学校が一堂に会する参加型ワークショップを主催。SDGsパートナー交流の場を創出。</p></div></div>
       </div>
     </div>
 
     <div class="year-block">
-      <div class="year-label">2025</div>
+      <div class="year-label">2025 <span>年の実績</span></div>
       <div class="achiev-cards">
-        <div class="achiev-card">
-          <img src="images/award-workstyle.jpg" alt="全国ワークスタイル変革大賞" class="achiev-photo" style="object-position:center 40%;">
-          <div class="achiev-body">
-            <span class="achiev-badge">🏆 大賞（最高賞）</span>
-            <h3 class="achiev-title">全国ワークスタイル変革大賞2025 全国大会 大賞</h3>
-            <p class="achiev-desc">介護・医療分野でのDX推進と働き方改革が評価され、Chatwork賞とのW受賞で全国大会最高賞を獲得。</p>
-            <a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer" class="achiev-link">プレスリリースを見る →</a>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/loglass.jpg" alt="Loglass経営管理DXアワード" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">🏅 審査員特別賞</span>
-            <h3 class="achiev-title">Loglass 経営管理DX Award 2025 審査員特別賞</h3>
-            <p class="achiev-desc">医療・介護法人の経営管理DXへの取り組みが審査員に高く評価され、特別賞を受賞。</p>
-            <a href="https://www.loglass.jp/keieikanri-dx-award/2025-winning-company#company05" target="_blank" rel="noopener noreferrer" class="achiev-link">受賞詳細を見る →</a>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/benkyokai.png" alt="病院ファンづくり合同勉強会" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">🎤 事例発表</span>
-            <h3 class="achiev-title">病院ファンづくり合同勉強会（第27回）事例発表</h3>
-            <p class="achiev-desc">「病院ファンづくりの歩み ～SDGsがもたらした地域・学校・企業との新たな出会い～」をテーマに登壇。</p>
-            <a href="https://hospital-marketing.jp/news-blog/s20250409/" target="_blank" rel="noopener noreferrer" class="achiev-link">詳細を見る →</a>
-            &nbsp;／&nbsp;
-            <a href="https://us06web.zoom.us/rec/play/1lPlZgRYtlYg2fMc1wODBHv_H4BuCBjEmkQ1ciRcKEnnb8CrQF6Nk3vwVHaYyuTzFEeDnxADUA1f1iH3.c921qItx26ZM-Roe?accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&continueMode=true" target="_blank" rel="noopener noreferrer" class="achiev-link">▶ 録画を見る →</a>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/media-gifu-woman.jpg" alt="ウーマンコネクト" class="achiev-photo" style="object-position:center 20%;">
-          <div class="achiev-body">
-            <span class="achiev-badge">🌸 登壇・主催</span>
-            <h3 class="achiev-title">ウーマンコネクト2025 岐阜新聞掲載</h3>
-            <p class="achiev-desc">女性の交流・キャリア形成を支援するイベントを主催。岐阜新聞に掲載された。</p>
-          </div>
-        </div>
+        <div class="achiev-card"><img src="images/award-workstyle.jpg" alt="ワークスタイル変革大賞" class="achiev-photo" style="object-position:center 40%;"><div class="achiev-body"><span class="achiev-badge">🏆 大賞（最高賞）</span><h3 class="achiev-title">全国ワークスタイル変革大賞2025 全国大会 大賞</h3><p class="achiev-desc">介護・医療分野でのDX推進と働き方改革が評価され、Chatwork賞とのW受賞で全国大会最高賞を獲得。</p><a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer" class="achiev-link">プレスリリースを見る →</a></div></div>
+        <div class="achiev-card"><img src="images/loglass.jpg" alt="Loglassアワード" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">🏅 審査員特別賞</span><h3 class="achiev-title">Loglass 経営管理DX Award 2025 審査員特別賞</h3><p class="achiev-desc">医療・介護法人の経営管理DXへの取り組みが審査員に高く評価され、特別賞を受賞。</p><a href="https://www.loglass.jp/keieikanri-dx-award/2025-winning-company#company05" target="_blank" rel="noopener noreferrer" class="achiev-link">受賞詳細を見る →</a></div></div>
+        <div class="achiev-card"><img src="images/benkyokai.png" alt="病院ファンづくり合同勉強会" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">🎤 事例発表</span><h3 class="achiev-title">病院ファンづくり合同勉強会（第27回）事例発表</h3><p class="achiev-desc">「病院ファンづくりの歩み ～SDGsがもたらした地域・学校・企業との新たな出会い～」をテーマに登壇。</p><a href="https://hospital-marketing.jp/news-blog/s20250409/" target="_blank" rel="noopener noreferrer" class="achiev-link">詳細 →</a> ／ <a href="https://us06web.zoom.us/rec/play/1lPlZgRYtlYg2fMc1wODBHv_H4BuCBjEmkQ1ciRcKEnnb8CrQF6Nk3vwVHaYyuTzFEeDnxADUA1f1iH3.c921qItx26ZM-Roe?accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&continueMode=true" target="_blank" rel="noopener noreferrer" class="achiev-link">▶ 録画 →</a></div></div>
+        <div class="achiev-card"><img src="images/media-gifu-woman.jpg" alt="ウーマンコネクト" class="achiev-photo" style="object-position:center 20%;"><div class="achiev-body"><span class="achiev-badge">🌿 登壇・主催</span><h3 class="achiev-title">ウーマンコネクト2025</h3><p class="achiev-desc">女性の交流・キャリア形成を支援するイベントを主催。岐阜新聞に掲載された。</p></div></div>
       </div>
     </div>
 
     <div class="year-block">
-      <div class="year-label">2024</div>
+      <div class="year-label">2024 <span>年の実績</span></div>
       <div class="achiev-cards">
-        <div class="achiev-card">
-          <img src="images/achiev-school.jpg" alt="SDGs出前授業" class="achiev-photo" style="object-position:center 40%;">
-          <div class="achiev-body">
-            <span class="achiev-badge">📚 出前授業</span>
-            <h3 class="achiev-title">SDGs出前授業 岐阜市立陽南中学校ほか</h3>
-            <p class="achiev-desc">陽南中・長良中・大垣東中・早田小・穂積小などでSDGs体験型授業を実施。CCNテレビでも放映。</p>
-            <a href="https://www.youtube.com/watch?v=b_yGFeBEt1A" target="_blank" rel="noopener noreferrer" class="achiev-link">CCN放映動画を見る →</a>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/media-gifu-2024.png" alt="ゆるキャラ総選挙3位" class="achiev-photo" style="object-position:top;">
-          <div class="achiev-body">
-            <span class="achiev-badge">🥉 全国3位</span>
-            <h3 class="achiev-title">病院ゆるキャラ総選挙2024 全国3位</h3>
-            <p class="achiev-desc">「なごみちゃん・ひかるちゃん」が全国大会で3位入賞。岐阜新聞・中日新聞・m3.comに掲載。</p>
-          </div>
-        </div>
-        <div class="achiev-card">
-          <img src="images/activity-workshop.jpg" alt="ワークショップ" class="achiev-photo">
-          <div class="achiev-body">
-            <span class="achiev-badge">🤝 活動</span>
-            <h3 class="achiev-title">岐阜新聞・中日新聞・Yahoo!ニュース ZDNET・FM GIFUほか多数掲載</h3>
-            <p class="achiev-desc">山県市SDGsイベント・ハーモニーライト・FM GIFU出演など、地域での活動が多数のメディアに掲載。</p>
-          </div>
-        </div>
+        <div class="achiev-card"><img src="images/achiev-school.jpg" alt="SDGs出前授業" class="achiev-photo" style="object-position:center 40%;"><div class="achiev-body"><span class="achiev-badge">📚 出前授業</span><h3 class="achiev-title">SDGs出前授業 岐阜市立陽南中学校ほか</h3><p class="achiev-desc">陽南中・長良中・大垣東中・早田小・穂積小などでSDGs体験型授業を実施。CCNテレビでも放映。</p><a href="https://www.youtube.com/watch?v=b_yGFeBEt1A" target="_blank" rel="noopener noreferrer" class="achiev-link">CCN放映動画を見る →</a></div></div>
+        <div class="achiev-card"><img src="images/media-gifu-2024.png" alt="ゆるキャラ総選挙" class="achiev-photo" style="object-position:top;"><div class="achiev-body"><span class="achiev-badge">🥉 全国3位</span><h3 class="achiev-title">病院ゆるキャラ総選挙2024 全国3位</h3><p class="achiev-desc">「なごみちゃん・ひかるちゃん」が全国大会で3位入賞。岐阜新聞・中日新聞・m3.comに掲載。</p></div></div>
+        <div class="achiev-card"><img src="images/activity-workshop.jpg" alt="メディア掲載" class="achiev-photo"><div class="achiev-body"><span class="achiev-badge">📰 メディア多数掲載</span><h3 class="achiev-title">岐阜新聞・中日新聞・Yahoo!ニュース ZDNET・FM GIFUほか多数</h3><p class="achiev-desc">山県市SDGsイベント・ハーモニーライト・FM GIFU出演など、地域での活動が多数のメディアに掲載。</p></div></div>
       </div>
     </div>
   </div>
@@ -630,17 +767,21 @@
 
 <!-- 講演・登壇 -->
 <section class="speaking" id="speaking">
+  <div class="wc-splash speaking-wc-1"></div>
+  <div class="wc-splash speaking-wc-2"></div>
   <div class="container">
-    <p class="section-eyebrow">Speaking</p>
-    <h2 class="section-title">講演・登壇テーマ</h2>
-    <div class="flower-divider">— ✿ —</div>
+    <div class="section-header">
+      <p class="section-script">Speaking</p>
+      <h2 class="section-title">講演・登壇テーマ</h2>
+      <div class="wc-divider"><div class="wc-divider-line"></div><div class="wc-divider-dot"></div></div>
+    </div>
     <div class="speaking-grid">
       <div class="speaking-card"><div class="speaking-num">01</div><h3 class="speaking-theme">病院ファンづくり</h3><p class="speaking-desc">地域に愛される病院をつくるための広報戦略・コミュニティ形成・ブランディング手法を実例を交えて紹介。</p></div>
       <div class="speaking-card"><div class="speaking-num">02</div><h3 class="speaking-theme">SDGsと医療福祉</h3><p class="speaking-desc">医療・介護の現場からSDGs推進に取り組む実践事例。学校・地域との連携による社会課題解決のアプローチ。</p></div>
       <div class="speaking-card"><div class="speaking-num">03</div><h3 class="speaking-theme">キャラクターを活用した広報戦略</h3><p class="speaking-desc">「なごみちゃん・ひかるちゃん」活用事例。キャラクターを使った情報発信・患者コミュニティ形成の実践。</p></div>
       <div class="speaking-card"><div class="speaking-num">04</div><h3 class="speaking-theme">地域連携による共創活動</h3><p class="speaking-desc">学校・企業・行政との共創プロジェクト事例。異分野をつなぐ地域づくりのノウハウと成果を共有。</p></div>
-      <div class="speaking-card"><div class="speaking-num">05</div><h3 class="speaking-theme">医療機関における DX推進</h3><p class="speaking-desc">ツール活用による業務改革事例。全国ワークスタイル変革大賞大賞受賞の取り組みを紹介。</p></div>
-      <div class="speaking-card"><div class="speaking-num">06</div><h3 class="speaking-theme">学校との協働による SDGs教育</h3><p class="speaking-desc">小学校・中学校での体験型SDGs出前授業の事例。ゲームを活用した超高齢社会の課題解決学習の実践。</p></div>
+      <div class="speaking-card"><div class="speaking-num">05</div><h3 class="speaking-theme">医療機関におけるDX推進</h3><p class="speaking-desc">ツール活用による業務改革事例。全国ワークスタイル変革大賞大賞受賞の取り組みを紹介。</p></div>
+      <div class="speaking-card"><div class="speaking-num">06</div><h3 class="speaking-theme">学校との協働によるSDGs教育</h3><p class="speaking-desc">小学校・中学校での体験型SDGs出前授業の事例。ゲームを活用した超高齢社会の課題解決学習の実践。</p></div>
     </div>
   </div>
 </section>
@@ -648,9 +789,11 @@
 <!-- メディア掲載 -->
 <section class="media-section" id="media">
   <div class="container">
-    <p class="section-eyebrow">Media Coverage</p>
-    <h2 class="section-title">メディア掲載・出演一覧</h2>
-    <div class="flower-divider">— ✿ —</div>
+    <div class="section-header">
+      <p class="section-script">Media Coverage</p>
+      <h2 class="section-title">メディア掲載・出演一覧</h2>
+      <div class="wc-divider"><div class="wc-divider-line"></div><div class="wc-divider-dot"></div></div>
+    </div>
     <div class="media-table-wrap">
       <table class="media-table">
         <thead><tr><th>年月</th><th>種別</th><th>媒体・番組名</th><th>内容</th><th>リンク</th></tr></thead>
@@ -680,10 +823,13 @@
 
 <!-- プロジェクト -->
 <section class="projects" id="projects">
+  <div class="wc-splash projects-wc-1"></div>
   <div class="container">
-    <p class="section-eyebrow">Projects</p>
-    <h2 class="section-title">プロジェクト</h2>
-    <div class="flower-divider">— ✿ —</div>
+    <div class="section-header">
+      <p class="section-script">Projects</p>
+      <h2 class="section-title">プロジェクト</h2>
+      <div class="wc-divider"><div class="wc-divider-line"></div><div class="wc-divider-dot"></div></div>
+    </div>
     <div class="projects-grid">
       <div class="project-card">
         <img src="images/radio.JPEG" alt="なごひかラジオ" class="project-img">
@@ -699,11 +845,11 @@
         <div class="project-body">
           <span class="project-tag">Character</span>
           <h3 class="project-title">なごみちゃん・ひかるちゃん</h3>
-          <p class="project-desc">病院公式キャラクター。病院ゆるキャラ総選挙全国3位。健康づくり・SDGs啓発・地域交流イベントなどで活動中。</p>
+          <p class="project-desc">病院公式キャラクター。病院ゆるキャラ総選挙全国3位。健康づくり・SDGs啓発・地域交流イベントで活動中。</p>
         </div>
       </div>
       <div class="project-card">
-        <img src="images/achiev-school.jpg" alt="SDGs活動" class="project-img" style="object-position:center 40%;">
+        <img src="images/achiev-school.jpg" alt="SDGs推進活動" class="project-img" style="object-position:center 40%;">
         <div class="project-body">
           <span class="project-tag">SDGs</span>
           <h3 class="project-title">SDGs推進活動</h3>
@@ -716,19 +862,21 @@
 
 <!-- お問い合わせ -->
 <section class="contact-section" id="contact">
+  <div class="wc-splash contact-wc-1"></div>
+  <div class="wc-splash contact-wc-2"></div>
   <div class="container">
     <div class="contact-inner">
-      <p class="section-eyebrow">Contact</p>
-      <h2 class="section-title">お問い合わせ</h2>
-      <div class="flower-divider">— ✿ —</div>
-      <p class="section-lead">講演・取材・見学・コラボレーションのご依頼など、<br>お気軽にご連絡ください。</p>
-      <a href="mailto:m.suzuki003300@gmail.com" class="contact-btn">✉ メールでお問い合わせ</a>
+      <p class="contact-script">Contact</p>
+      <h2 class="contact-title">お問い合わせ</h2>
+      <div class="wc-divider" style="margin:0 auto 28px;justify-content:center;max-width:100%;"><div class="wc-divider-line" style="background:linear-gradient(90deg,transparent,var(--sage-wash),transparent);max-width:120px;"></div><div class="wc-divider-dot"></div><div class="wc-divider-line" style="background:linear-gradient(270deg,transparent,var(--sage-wash),transparent);max-width:120px;"></div></div>
+      <p class="contact-lead">講演・取材・見学・コラボレーションのご依頼など、<br>お気軽にご連絡ください。</p>
+      <a href="mailto:m.suzuki003300@gmail.com" class="contact-btn">メールでお問い合わせ</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>&copy; 2026 <span>鈴木 未沙</span>. All Rights Reserved.</p>
+  <p>&copy; 2026 <em>鈴木 未沙</em>. All Rights Reserved.</p>
 </footer>
 
 </body>
