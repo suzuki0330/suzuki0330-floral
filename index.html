@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鈴木未沙</title>
+  <meta name="description" content="病院広報・SDGs・地域共創をテーマに活動。病院ファンづくり甲子園優勝、全国ワークスタイル変革大賞大賞など、医療と地域をつなぐ取り組みを発信しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose:       #c8748a;
+      --rose-light: #e8a0b4;
+      --rose-pale:  #fde8ef;
+      --sage:       #7a9e7e;
+      --sage-light: #a8c5aa;
+      --sage-pale:  #eef5ee;
+      --cream:      #fdf6f0;
+      --ivory:      #fefaf6;
+      --gold:       #c9956c;
+      --gold-light: #e0b898;
+      --charcoal:   #3d2c2c;
+      --gray-mid:   #7a6060;
+      --border:     #f0dde5;
+      --white:      #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: var(--charcoal); line-height: 1.8; background: var(--ivory); }
+
+    /* ===== FLOWER DECORATIONS ===== */
+    .flower-divider {
+      text-align: center; color: var(--rose-light);
+      font-size: 1.2rem; letter-spacing: 0.5rem;
+      margin: 0 0 48px;
+      opacity: 0.7;
+    }
+    .petal-bg {
+      position: absolute; pointer-events: none; opacity: 0.06;
+      font-size: 8rem; line-height: 1;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(253,246,240,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 48px; height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--rose); font-size: 1.2rem; font-weight: 600;
+      letter-spacing: 0.1em; text-decoration: none;
+    }
+    .nav-logo span { font-size: 0.75rem; color: var(--gray-mid); font-family: 'Noto Sans JP', sans-serif; font-weight: 300; margin-left: 8px; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--gray-mid); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rose); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh; padding-top: 64px;
+      background: linear-gradient(135deg, #fff5f8 0%, #fdf6f0 40%, #f5f0f8 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero::before {
+      content: '🌸'; position: absolute; top: 8%; right: 5%; font-size: 12rem; opacity: 0.07; transform: rotate(20deg);
+    }
+    .hero::after {
+      content: '🌿'; position: absolute; bottom: 5%; left: 2%; font-size: 10rem; opacity: 0.07; transform: rotate(-15deg);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; padding: 60px 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-content {}
+    .hero-flower { color: var(--rose-light); font-size: 1.4rem; letter-spacing: 0.3rem; margin-bottom: 20px; }
+    .hero-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 600; color: var(--charcoal); line-height: 1.3; margin-bottom: 4px;
+    }
+    .hero-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--rose); letter-spacing: 0.2em;
+      margin-bottom: 28px; font-style: italic;
+    }
+    .hero-line {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--rose), var(--rose-light));
+      margin-bottom: 28px; border-radius: 2px;
+    }
+    .hero-tagline { font-size: 1.05rem; line-height: 2.1; color: var(--gray-mid); margin-bottom: 32px; }
+    .hero-awards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+    .hero-award {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 40px; padding: 8px 18px;
+      box-shadow: 0 2px 12px rgba(200,116,138,0.08);
+    }
+    .hero-award-icon { font-size: 1rem; }
+    .hero-award-text { font-size: 0.8rem; color: var(--charcoal); }
+    .hero-award-text strong { color: var(--rose); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-tag {
+      background: var(--rose-pale); color: var(--rose);
+      font-size: 0.75rem; padding: 4px 14px; border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    .hero-photo-wrap { position: relative; }
+    .hero-photo-frame {
+      border-radius: 50% 40% 50% 40% / 40% 50% 40% 50%;
+      overflow: hidden; aspect-ratio: 1;
+      box-shadow: 0 20px 60px rgba(200,116,138,0.2);
+      border: 4px solid var(--rose-pale);
+    }
+    .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .hero-deco-1 { position: absolute; top: -20px; right: -10px; font-size: 3rem; opacity: 0.4; animation: float 4s ease-in-out infinite; }
+    .hero-deco-2 { position: absolute; bottom: -10px; left: -20px; font-size: 2.5rem; opacity: 0.35; animation: float 5s ease-in-out infinite 1s; }
+    .hero-deco-3 { position: absolute; top: 40%; right: -30px; font-size: 2rem; opacity: 0.3; animation: float 3.5s ease-in-out infinite 0.5s; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 96px 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .section-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem; letter-spacing: 0.3em; color: var(--rose);
+      text-transform: uppercase; margin-bottom: 8px; font-style: italic;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--charcoal); margin-bottom: 12px; font-weight: 600;
+    }
+    .section-lead { color: var(--gray-mid); font-size: 0.93rem; max-width: 600px; margin-bottom: 48px; line-height: 1.9; }
+
+    /* ===== PROFILE ===== */
+    .profile-section { background: var(--white); position: relative; overflow: hidden; }
+    .profile-section::before { content: '🌷'; position: absolute; top: 5%; right: 3%; font-size: 9rem; opacity: 0.05; }
+    .profile-grid { display: grid; grid-template-columns: 320px 1fr; gap: 64px; align-items: start; }
+    .profile-photo { border-radius: 20px; overflow: hidden; box-shadow: 0 16px 48px rgba(200,116,138,0.15); }
+    .profile-photo img { width: 100%; display: block; }
+    .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .profile-tag { background: var(--rose-pale); color: var(--rose); font-size: 0.72rem; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
+    .profile-body h3 { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--rose); margin: 28px 0 10px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .profile-body h3::before { content: '✦'; font-size: 0.7rem; }
+    .profile-body h3:first-child { margin-top: 0; }
+    .profile-body p { color: var(--gray-mid); line-height: 2; margin-bottom: 12px; font-size: 0.93rem; }
+    .profile-info-grid { display: flex; flex-direction: column; gap: 10px; }
+    .profile-info-item { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: baseline; }
+    .pi-label { font-size: 0.72rem; color: var(--rose); font-weight: 700; white-space: nowrap; }
+    .pi-value { font-size: 0.86rem; color: var(--gray-mid); line-height: 1.7; }
+    .career-timeline { position: relative; padding-left: 16px; margin-top: 16px; }
+    .career-timeline::before { content:''; position:absolute; left:50px; top:8px; bottom:8px; width:2px; background: linear-gradient(180deg, var(--rose-light), var(--rose-pale)); }
+    .ct-item { display:grid; grid-template-columns:50px 1fr; gap:16px; align-items:start; padding:10px 0; position:relative; }
+    .ct-item::before { content:''; position:absolute; left:43px; top:16px; width:10px; height:10px; border-radius:50%; background:var(--white); border:2px solid var(--rose-light); }
+    .ct-current::before { border-color:var(--rose); background:var(--rose); }
+    .ct-year { font-size:0.78rem; font-weight:700; color:var(--rose); padding-top:2px; white-space:nowrap; }
+    .ct-text { font-size:0.85rem; color:var(--gray-mid); line-height:1.7; }
+    .profile-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+    .profile-link { display:inline-flex; align-items:center; gap:6px; color:var(--rose); font-size:0.82rem; text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px; transition:all 0.2s; }
+    .profile-link:hover { border-color:var(--rose); }
+
+    /* ===== AWARDS ===== */
+    .awards-section { background: linear-gradient(135deg, #fff8f9 0%, #fdf6f0 100%); position: relative; overflow: hidden; }
+    .awards-section::after { content: '🌸'; position: absolute; bottom: 5%; right: 5%; font-size: 9rem; opacity: 0.06; }
+    .awards-list { display: flex; flex-direction: column; gap: 0; max-width: 860px; }
+    .award-row {
+      display: grid; grid-template-columns: 96px 48px 1fr auto;
+      gap: 0 20px; align-items: center;
+      padding: 20px 24px; background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+      border-radius: 0;
+    }
+    .award-row:first-child { border-radius: 16px 16px 0 0; }
+    .award-row:last-child { border-radius: 0 0 16px 16px; border-bottom: none; }
+    .award-row:hover { background: var(--rose-pale); }
+    .award-year-col { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--rose); font-weight: 600; }
+    .award-icon-col { font-size: 1.4rem; text-align: center; }
+    .award-name { font-size: 0.93rem; color: var(--charcoal); font-weight: 500; line-height: 1.5; }
+    .award-org { font-size: 0.75rem; color: var(--gray-mid); margin-top: 2px; }
+    .award-link-col a { font-size: 0.75rem; color: var(--rose); text-decoration: none; white-space: nowrap; }
+    .award-link-col a:hover { opacity: 0.7; }
+
+    /* ===== ACHIEVEMENTS ===== */
+    .achievements { background: var(--cream); position: relative; overflow: hidden; }
+    .achievements::before { content: '🌼'; position: absolute; top: 3%; left: 1%; font-size: 8rem; opacity: 0.06; }
+    .year-block { margin-bottom: 64px; }
+    .year-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 600;
+      color: var(--rose-light); border-bottom: 1px solid var(--border);
+      padding-bottom: 12px; margin-bottom: 28px;
+    }
+    .achiev-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .achiev-card {
+      border-radius: 16px; overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 20px rgba(200,116,138,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+      border: 1px solid var(--border);
+    }
+    .achiev-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(200,116,138,0.16); }
+    .achiev-card.full-width { grid-column: 1/-1; }
+    .achiev-photo { width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center; display:block; background:#f8f0f3; }
+    .achiev-body { padding: 22px 24px; flex: 1; }
+    .achiev-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--rose-pale); color: var(--rose);
+      font-size: 0.72rem; padding: 4px 14px; border-radius: 20px;
+      margin-bottom: 10px; font-weight: 500; border: 1px solid var(--border);
+    }
+    .achiev-title { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--charcoal); font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+    .achiev-desc { font-size: 0.82rem; color: var(--gray-mid); line-height: 1.8; margin-bottom: 10px; }
+    .achiev-link { font-size: 0.76rem; color: var(--rose); text-decoration: none; }
+    .achiev-link:hover { opacity: 0.7; }
+
+    /* ===== SPEAKING ===== */
+    .speaking { background: linear-gradient(135deg, #fde8ef 0%, #f5eef8 50%, #eef5ee 100%); position: relative; overflow: hidden; }
+    .speaking::after { content: '🌺'; position: absolute; top: 5%; right: 3%; font-size: 9rem; opacity: 0.12; }
+    .speaking-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .speaking-card {
+      background: rgba(255,255,255,0.85); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .speaking-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(200,116,138,0.15); }
+    .speaking-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--rose-light); font-weight: 600; margin-bottom: 10px; }
+    .speaking-theme { font-size: 0.93rem; color: var(--charcoal); font-weight: 700; margin-bottom: 8px; line-height: 1.5; }
+    .speaking-desc { font-size: 0.8rem; color: var(--gray-mid); line-height: 1.7; }
+
+    /* ===== MEDIA ===== */
+    .media-section { background: var(--white); }
+    .media-table-wrap { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(200,116,138,0.08); }
+    .media-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .media-table th { background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%); color: var(--white); padding: 14px 20px; text-align: left; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.08em; }
+    .media-table th:first-child { border-radius: 0; }
+    .media-table td { padding: 12px 20px; border-bottom: 1px solid #fce8ef; vertical-align: middle; }
+    .media-table tr:nth-child(even) td { background: #fff8fa; }
+    .media-table tr:hover td { background: var(--rose-pale); }
+    .media-table a { color: var(--rose); text-decoration: none; font-size: 0.78rem; }
+    .media-badge { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 10px; }
+    .badge-news { background: #fde8ef; color: var(--rose); }
+    .badge-tv { background: #fde8d8; color: #8b3a00; }
+    .badge-radio { background: var(--sage-pale); color: var(--sage); }
+    .badge-web { background: #f0e8f8; color: #6a3a8b; }
+    .badge-award { background: #fdf8e8; color: #8b7000; }
+
+    /* ===== PROJECTS ===== */
+    .projects { background: var(--cream); position: relative; overflow: hidden; }
+    .projects::before { content: '🌿'; position: absolute; bottom: 5%; left: 2%; font-size: 8rem; opacity: 0.08; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .project-card {
+      border-radius: 20px; overflow: hidden; background: var(--white);
+      box-shadow: 0 4px 20px rgba(200,116,138,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--border);
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(200,116,138,0.16); }
+    .project-img { width: 100%; height: 200px; object-fit: cover; }
+    .project-body { padding: 24px; }
+    .project-tag { display: inline-block; background: var(--sage-pale); color: var(--sage); font-size: 0.7rem; padding: 3px 10px; border-radius: 10px; margin-bottom: 10px; font-weight: 500; }
+    .project-title { font-family: 'Noto Serif JP', serif; font-size: 1rem; color: var(--charcoal); font-weight: 600; margin-bottom: 10px; line-height: 1.5; }
+    .project-desc { font-size: 0.82rem; color: var(--gray-mid); line-height: 1.75; margin-bottom: 16px; }
+    .project-link { display: inline-block; font-size: 0.78rem; color: var(--rose); text-decoration: none; border: 1px solid var(--border); padding: 6px 16px; border-radius: 20px; transition: all 0.2s; }
+    .project-link:hover { background: var(--rose); color: var(--white); border-color: var(--rose); }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: linear-gradient(135deg, #fde8ef 0%, #f8f0f8 50%, #eef5ee 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .contact-section::before { content: '🌸🌷🌸'; position: absolute; top: 10%; left: 50%; transform: translateX(-50%); font-size: 3rem; opacity: 0.12; letter-spacing: 1rem; }
+    .contact-inner { max-width: 560px; margin: 0 auto; }
+    .contact-inner .section-title { color: var(--charcoal); }
+    .contact-inner .section-lead { margin: 0 auto 36px; text-align: center; max-width: 100%; }
+    .contact-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-light) 100%);
+      color: var(--white); padding: 16px 52px; border-radius: 40px;
+      text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.1em;
+      box-shadow: 0 8px 24px rgba(200,116,138,0.3);
+      transition: all 0.3s;
+    }
+    .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(200,116,138,0.4); }
+
+    footer {
+      background: var(--charcoal); color: rgba(255,255,255,0.4);
+      text-align: center; padding: 32px; font-size: 0.78rem; letter-spacing: 0.06em;
+    }
+    footer span { color: var(--rose-light); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-frame { max-width: 300px; margin: 0 auto; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .achiev-cards, .speaking-grid, .projects-grid { grid-template-columns: repeat(2,1fr); }
+      .container { padding: 0 28px; }
+      nav { padding: 0 24px; }
+    }
+    @media (max-width: 640px) {
+      .achiev-cards, .speaking-grid, .projects-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .award-row { grid-template-columns: 60px 32px 1fr; }
+      .award-link-col { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ナビ -->
+<nav>
+  <a href="#" class="nav-logo">鈴木 未沙 <span>Misa Suzuki</span></a>
+  <ul class="nav-links">
+    <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#awards">受賞歴</a></li>
+    <li><a href="#achievements">実績</a></li>
+    <li><a href="#speaking">講演・登壇</a></li>
+    <li><a href="#media">メディア</a></li>
+    <li><a href="#projects">プロジェクト</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-flower">✿ ✾ ✿</div>
+      <h1 class="hero-name">鈴木 未沙</h1>
+      <p class="hero-name-en">Misa Suzuki</p>
+      <div class="hero-line"></div>
+      <p class="hero-tagline">
+        病院広報 × SDGs × 地域共創<br>
+        医療・介護の枠を超え、<br>
+        地域・学校・企業との共創を通じて<br>
+        「病院ファンづくり」に取り組んでいます。
+      </p>
+      <div class="hero-awards">
+        <div class="hero-award">
+          <span class="hero-award-icon">🏆</span>
+          <span class="hero-award-text"><strong>病院ファンづくり甲子園 優勝</strong>（2026）</span>
+        </div>
+        <div class="hero-award">
+          <span class="hero-award-icon">🏆</span>
+          <span class="hero-award-text"><strong>全国ワークスタイル変革大賞 大賞</strong>（2025）</span>
+        </div>
+        <div class="hero-award">
+          <span class="hero-award-icon">🏅</span>
+          <span class="hero-award-text"><strong>Loglass 経営管理DXアワード 審査員特別賞</strong>（2025）</span>
+        </div>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">病院広報</span>
+        <span class="hero-tag">SDGs推進</span>
+        <span class="hero-tag">地域共創</span>
+        <span class="hero-tag">DX推進</span>
+        <span class="hero-tag">女性活躍</span>
+        <span class="hero-tag">MBA在学中</span>
+        <span class="hero-tag">ラジオパーソナリティ</span>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="images/profile-hero.jpg" alt="鈴木未沙プロフィール写真">
+      </div>
+      <div class="hero-deco-1">🌸</div>
+      <div class="hero-deco-2">🌿</div>
+      <div class="hero-deco-3">🌷</div>
+    </div>
+  </div>
+</section>
+
+<!-- プロフィール -->
+<section class="profile-section" id="profile">
+  <div class="container">
+    <div class="profile-grid">
+      <div>
+        <div class="profile-photo">
+          <img src="images/profile.jpg" alt="鈴木未沙">
+        </div>
+        <div class="profile-tags">
+          <span class="profile-tag">病院広報</span>
+          <span class="profile-tag">SDGs推進</span>
+          <span class="profile-tag">地域共創</span>
+          <span class="profile-tag">DX推進</span>
+          <span class="profile-tag">女性活躍</span>
+          <span class="profile-tag">MBA在学中</span>
+          <span class="profile-tag">ラジオパーソナリティ</span>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p class="section-eyebrow">Profile</p>
+        <h2 class="section-title">プロフィール</h2>
+        <div class="flower-divider">— ✿ —</div>
+        <div class="profile-info-grid">
+          <div class="profile-info-item"><span class="pi-label">出身</span><span class="pi-value">横浜生まれ愛知育ち、岐阜在住</span></div>
+          <div class="profile-info-item"><span class="pi-label">資格</span><span class="pi-value">教員免許一種（小/中/高 英語）、キャリアコンサルタント、ファイナンシャル・プランニング技能士、保育士、簿記、G検定 etc</span></div>
+          <div class="profile-info-item"><span class="pi-label">特技</span><span class="pi-value">バレーボール（歴20年）</span></div>
+          <div class="profile-info-item"><span class="pi-label">週末</span><span class="pi-value">経営大学院でMBA勉強中 / ゴルフ練習中</span></div>
+          <div class="profile-info-item"><span class="pi-label">推し</span><span class="pi-value">葉加瀬太郎</span></div>
+        </div>
+        <h3>キャリアタイムライン</h3>
+        <div class="career-timeline">
+          <div class="ct-item"><div class="ct-year">2001</div><div class="ct-text">将来学校の先生になると決意（中１）</div></div>
+          <div class="ct-item"><div class="ct-year">2007</div><div class="ct-text">愛知教育大学へ進学</div></div>
+          <div class="ct-item"><div class="ct-year">2011</div><div class="ct-text">愛知県で中学校英語教員になる（地方公務員）<br>中１〜中３担任、部活顧問で全国大会出場</div></div>
+          <div class="ct-item"><div class="ct-year">2018</div><div class="ct-text">結婚→退職して岐阜へ引っ越し<br>和光会グループへ入職（秘書）</div></div>
+          <div class="ct-item"><div class="ct-year">2022</div><div class="ct-text">理事長室 室長 就任</div></div>
+          <div class="ct-item"><div class="ct-year">2023</div><div class="ct-text">SDGs推進室 室長就任 ／ DX推進室 兼務</div></div>
+          <div class="ct-item ct-current"><div class="ct-year">2025〜</div><div class="ct-text">広報室 室長 就任</div></div>
+        </div>
+        <h3>活動の特徴</h3>
+        <p>病院公式キャラクター「なごみちゃん・ひかるちゃん」を活用した情報発信や、ラジオ番組「なごひかラジオ」のパーソナリティとしても活動。学校・企業・行政との共創プロジェクトを通じて、岐阜県の地域課題解決に取り組んでいます。</p>
+        <p>全国ワークスタイル変革大賞 大賞、病院ファンづくり甲子園 優勝など、複数の全国大会で最高賞を受賞。「医療・福祉の現場から、地域を元気にする」ことをミッションに日々活動しています。</p>
+        <div class="profile-links">
+          <a href="https://100th.wakokai.or.jp/radio/" target="_blank" rel="noopener noreferrer" class="profile-link">🎙 なごひかラジオ</a>
+          <a href="https://gifujo.pref.gifu.lg.jp/message/2024/08/post-437.html" target="_blank" rel="noopener noreferrer" class="profile-link">📍 ギフジョ！</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 受賞歴 -->
+<section class="awards-section" id="awards">
+  <div class="container">
+    <p class="section-eyebrow">Awards</p>
+    <h2 class="section-title">受賞歴</h2>
+    <div class="flower-divider">— ✿ —</div>
+    <div class="awards-list">
+      <div class="award-row">
+        <div class="award-year-col">2026</div>
+        <div class="award-icon-col">🏆</div>
+        <div>
+          <div class="award-name">病院ファンづくり甲子園 全国大会 優勝</div>
+          <div class="award-org">病院マーケティングサミットJAPAN</div>
+        </div>
+        <div class="award-link-col"><a href="https://www.youtube.com/watch?v=S8SY177wojs" target="_blank" rel="noopener noreferrer">動画を見る →</a></div>
+      </div>
+      <div class="award-row">
+        <div class="award-year-col">2025</div>
+        <div class="award-icon-col">🏆</div>
+        <div>
+          <div class="award-name">全国ワークスタイル変革大賞2025 大賞（最高賞）</div>
+          <div class="award-org">一般社団法人日本デジタルトランスフォーメーション推進協会</div>
+        </div>
+        <div class="award-link-col">
+          <a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer">PR TIMES →</a>
+          ／ <a href="https://prtimes.jp/main/html/rd/p/000000329.000013602.html" target="_blank" rel="noopener noreferrer">Chatwork編 →</a>
+        </div>
+      </div>
+      <div class="award-row">
+        <div class="award-year-col">2025</div>
+        <div class="award-icon-col">🏅</div>
+        <div>
+          <div class="award-name">Loglass 経営管理DX Award 2025 審査員特別賞</div>
+          <div class="award-org">株式会社ログラス</div>
+        </div>
+        <div class="award-link-col"><a href="https://www.loglass.jp/keieikanri-dx-award/2025-winning-company#company05" target="_blank" rel="noopener noreferrer">詳細を見る →</a></div>
+      </div>
+      <div class="award-row">
+        <div class="award-year-col">2025</div>
+        <div class="award-icon-col">🌟</div>
+        <div>
+          <div class="award-name">ティーチミービスアワード 社会貢献賞</div>
+          <div class="award-org">（和光会グループとして受賞）</div>
+        </div>
+        <div class="award-link-col"></div>
+      </div>
+      <div class="award-row">
+        <div class="award-year-col">2024</div>
+        <div class="award-icon-col">🥉</div>
+        <div>
+          <div class="award-name">病院ゆるキャラ総選挙2024 全国3位</div>
+          <div class="award-org">なごみちゃん・ひかるちゃん（m3.com主催）</div>
+        </div>
+        <div class="award-link-col"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主な実績 -->
+<section class="achievements" id="achievements">
+  <div class="container">
+    <p class="section-eyebrow">Achievements</p>
+    <h2 class="section-title">主な実績</h2>
+    <div class="flower-divider">— ✿ —</div>
+
+    <div class="year-block">
+      <div class="year-label">2026</div>
+      <div class="achiev-cards">
+        <div class="achiev-card full-width">
+          <img src="images/achiev-fanzukuri-win.jpg" alt="病院ファンづくり甲子園優勝" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🏆 優勝（第1位）</span>
+            <h3 class="achiev-title">病院ファンづくり甲子園 全国大会 優勝</h3>
+            <p class="achiev-desc">全国6エリアの地区予選を勝ち抜いたチームが大阪に集結する全国大会で第1位を獲得。「SDGsがもたらした地域・学校・企業との新たな出会い」をテーマに発表し最高評価を受けた。</p>
+            <a href="https://www.youtube.com/watch?v=S8SY177wojs" target="_blank" rel="noopener noreferrer" class="achiev-link">予選動画を見る →</a>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/gifusapo.png" alt="ぎふサポ" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🎤 登壇 2026.4.24</span>
+            <h3 class="achiev-title">"人の役に立つ"だけじゃない。<br>医療・福祉の仕事がちょっと面白くなる話</h3>
+            <p class="achiev-desc">岐阜県若者サポートステーション（ぎふサポ）主催イベントに登壇。医療・福祉の仕事の魅力を若者に向けて発信。</p>
+            <a href="https://gifusapo.pref.gifu.lg.jp/" target="_blank" rel="noopener noreferrer" class="achiev-link">ぎふサポ掲載ページを見る →</a>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/gifuken.jpg" alt="岐阜県未来戦略会議委員" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">📋 委員任命 2026.4〜</span>
+            <h3 class="achiev-title">岐阜県未来戦略会議 委員 任命</h3>
+            <p class="achiev-desc">岐阜県より未来戦略会議の委員に任命。地域の未来づくりに向けた政策立案・議論に参画。</p>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/gifuken2.jpg" alt="岐阜県未来戦略会議委員2" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">📋 委員活動 2026.4〜</span>
+            <h3 class="achiev-title">岐阜県未来戦略会議 委員活動</h3>
+            <p class="achiev-desc">岐阜県の未来戦略について、医療・福祉・SDGs・地域共創の視点から積極的に提言・活動。</p>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/achiev-kakamigahara.png" alt="かかみがはらSDGsパートナー交流会" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🎤 講演 2026.1.29</span>
+            <h3 class="achiev-title">第4回 かかみがはらSDGsパートナー交流会<br>和光会グループSDGs取り組み講演</h3>
+            <p class="achiev-desc">各務原市主催の交流会にて、SDGsパートナー企業・団体の皆さまを対象に和光会グループのSDGsの取り組みについて講演。</p>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/gifucity.JPEG" alt="岐阜市未来共創ワークショップ" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🤝 ワークショップ 2026.1.25</span>
+            <h3 class="achiev-title">岐阜市未来共創ワークショップ</h3>
+            <p class="achiev-desc">地域企業・行政・学校が一堂に会する参加型ワークショップを主催。岐阜県各地でSDGsパートナー交流の場を創出。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-block">
+      <div class="year-label">2025</div>
+      <div class="achiev-cards">
+        <div class="achiev-card">
+          <img src="images/award-workstyle.jpg" alt="全国ワークスタイル変革大賞" class="achiev-photo" style="object-position:center 40%;">
+          <div class="achiev-body">
+            <span class="achiev-badge">🏆 大賞（最高賞）</span>
+            <h3 class="achiev-title">全国ワークスタイル変革大賞2025 全国大会 大賞</h3>
+            <p class="achiev-desc">介護・医療分野でのDX推進と働き方改革が評価され、Chatwork賞とのW受賞で全国大会最高賞を獲得。</p>
+            <a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer" class="achiev-link">プレスリリースを見る →</a>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/loglass.jpg" alt="Loglass経営管理DXアワード" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🏅 審査員特別賞</span>
+            <h3 class="achiev-title">Loglass 経営管理DX Award 2025 審査員特別賞</h3>
+            <p class="achiev-desc">医療・介護法人の経営管理DXへの取り組みが審査員に高く評価され、特別賞を受賞。</p>
+            <a href="https://www.loglass.jp/keieikanri-dx-award/2025-winning-company#company05" target="_blank" rel="noopener noreferrer" class="achiev-link">受賞詳細を見る →</a>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/benkyokai.png" alt="病院ファンづくり合同勉強会" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🎤 事例発表</span>
+            <h3 class="achiev-title">病院ファンづくり合同勉強会（第27回）事例発表</h3>
+            <p class="achiev-desc">「病院ファンづくりの歩み ～SDGsがもたらした地域・学校・企業との新たな出会い～」をテーマに登壇。</p>
+            <a href="https://hospital-marketing.jp/news-blog/s20250409/" target="_blank" rel="noopener noreferrer" class="achiev-link">詳細を見る →</a>
+            &nbsp;／&nbsp;
+            <a href="https://us06web.zoom.us/rec/play/1lPlZgRYtlYg2fMc1wODBHv_H4BuCBjEmkQ1ciRcKEnnb8CrQF6Nk3vwVHaYyuTzFEeDnxADUA1f1iH3.c921qItx26ZM-Roe?accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&continueMode=true" target="_blank" rel="noopener noreferrer" class="achiev-link">▶ 録画を見る →</a>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/media-gifu-woman.jpg" alt="ウーマンコネクト" class="achiev-photo" style="object-position:center 20%;">
+          <div class="achiev-body">
+            <span class="achiev-badge">🌸 登壇・主催</span>
+            <h3 class="achiev-title">ウーマンコネクト2025 岐阜新聞掲載</h3>
+            <p class="achiev-desc">女性の交流・キャリア形成を支援するイベントを主催。岐阜新聞に掲載された。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-block">
+      <div class="year-label">2024</div>
+      <div class="achiev-cards">
+        <div class="achiev-card">
+          <img src="images/achiev-school.jpg" alt="SDGs出前授業" class="achiev-photo" style="object-position:center 40%;">
+          <div class="achiev-body">
+            <span class="achiev-badge">📚 出前授業</span>
+            <h3 class="achiev-title">SDGs出前授業 岐阜市立陽南中学校ほか</h3>
+            <p class="achiev-desc">陽南中・長良中・大垣東中・早田小・穂積小などでSDGs体験型授業を実施。CCNテレビでも放映。</p>
+            <a href="https://www.youtube.com/watch?v=b_yGFeBEt1A" target="_blank" rel="noopener noreferrer" class="achiev-link">CCN放映動画を見る →</a>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/media-gifu-2024.png" alt="ゆるキャラ総選挙3位" class="achiev-photo" style="object-position:top;">
+          <div class="achiev-body">
+            <span class="achiev-badge">🥉 全国3位</span>
+            <h3 class="achiev-title">病院ゆるキャラ総選挙2024 全国3位</h3>
+            <p class="achiev-desc">「なごみちゃん・ひかるちゃん」が全国大会で3位入賞。岐阜新聞・中日新聞・m3.comに掲載。</p>
+          </div>
+        </div>
+        <div class="achiev-card">
+          <img src="images/activity-workshop.jpg" alt="ワークショップ" class="achiev-photo">
+          <div class="achiev-body">
+            <span class="achiev-badge">🤝 活動</span>
+            <h3 class="achiev-title">岐阜新聞・中日新聞・Yahoo!ニュース ZDNET・FM GIFUほか多数掲載</h3>
+            <p class="achiev-desc">山県市SDGsイベント・ハーモニーライト・FM GIFU出演など、地域での活動が多数のメディアに掲載。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 講演・登壇 -->
+<section class="speaking" id="speaking">
+  <div class="container">
+    <p class="section-eyebrow">Speaking</p>
+    <h2 class="section-title">講演・登壇テーマ</h2>
+    <div class="flower-divider">— ✿ —</div>
+    <div class="speaking-grid">
+      <div class="speaking-card"><div class="speaking-num">01</div><h3 class="speaking-theme">病院ファンづくり</h3><p class="speaking-desc">地域に愛される病院をつくるための広報戦略・コミュニティ形成・ブランディング手法を実例を交えて紹介。</p></div>
+      <div class="speaking-card"><div class="speaking-num">02</div><h3 class="speaking-theme">SDGsと医療福祉</h3><p class="speaking-desc">医療・介護の現場からSDGs推進に取り組む実践事例。学校・地域との連携による社会課題解決のアプローチ。</p></div>
+      <div class="speaking-card"><div class="speaking-num">03</div><h3 class="speaking-theme">キャラクターを活用した広報戦略</h3><p class="speaking-desc">「なごみちゃん・ひかるちゃん」活用事例。キャラクターを使った情報発信・患者コミュニティ形成の実践。</p></div>
+      <div class="speaking-card"><div class="speaking-num">04</div><h3 class="speaking-theme">地域連携による共創活動</h3><p class="speaking-desc">学校・企業・行政との共創プロジェクト事例。異分野をつなぐ地域づくりのノウハウと成果を共有。</p></div>
+      <div class="speaking-card"><div class="speaking-num">05</div><h3 class="speaking-theme">医療機関における DX推進</h3><p class="speaking-desc">ツール活用による業務改革事例。全国ワークスタイル変革大賞大賞受賞の取り組みを紹介。</p></div>
+      <div class="speaking-card"><div class="speaking-num">06</div><h3 class="speaking-theme">学校との協働による SDGs教育</h3><p class="speaking-desc">小学校・中学校での体験型SDGs出前授業の事例。ゲームを活用した超高齢社会の課題解決学習の実践。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- メディア掲載 -->
+<section class="media-section" id="media">
+  <div class="container">
+    <p class="section-eyebrow">Media Coverage</p>
+    <h2 class="section-title">メディア掲載・出演一覧</h2>
+    <div class="flower-divider">— ✿ —</div>
+    <div class="media-table-wrap">
+      <table class="media-table">
+        <thead><tr><th>年月</th><th>種別</th><th>媒体・番組名</th><th>内容</th><th>リンク</th></tr></thead>
+        <tbody>
+          <tr><td>2026.04</td><td><span class="media-badge badge-news">新聞</span></td><td>読売新聞</td><td>「働き方と地域密着で２冠」全国DX受賞</td><td></td></tr>
+          <tr><td>2026.01</td><td><span class="media-badge badge-award">受賞</span></td><td>病院マーケティングサミット</td><td>病院ファンづくり甲子園 全国大会 優勝</td><td><a href="https://www.youtube.com/watch?v=S8SY177wojs" target="_blank" rel="noopener noreferrer">YouTube →</a></td></tr>
+          <tr><td>2025.12</td><td><span class="media-badge badge-web">WEB</span></td><td>PR TIMES</td><td>全国ワークスタイル変革大賞2025 大賞受賞</td><td><a href="https://prtimes.jp/main/html/rd/p/000000143.000115435.html" target="_blank" rel="noopener noreferrer">記事 →</a></td></tr>
+          <tr><td>2025.12</td><td><span class="media-badge badge-award">受賞</span></td><td>Loglass</td><td>経営管理DX Award 審査員特別賞</td><td><a href="https://www.loglass.jp/keieikanri-dx-award/2025-winning-company#company05" target="_blank" rel="noopener noreferrer">詳細 →</a></td></tr>
+          <tr><td>2025.04</td><td><span class="media-badge badge-web">WEB</span></td><td>病院マーケティングサミット</td><td>第27回勉強会 事例発表</td><td><a href="https://hospital-marketing.jp/news-blog/s20250409/" target="_blank" rel="noopener noreferrer">記事 →</a></td></tr>
+          <tr><td>2025.02</td><td><span class="media-badge badge-news">新聞</span></td><td>岐阜新聞</td><td>「女性活躍、働き方学ぶ」ウーマンコネクト</td><td></td></tr>
+          <tr><td>2025.01</td><td><span class="media-badge badge-news">新聞</span></td><td>岐阜新聞</td><td>ティーチミービスアワード 社会貢献賞</td><td></td></tr>
+          <tr><td>2024.12</td><td><span class="media-badge badge-news">新聞</span></td><td>岐阜新聞・中日新聞</td><td>なごみちゃん・ひかるちゃん全国3位</td><td></td></tr>
+          <tr><td>2024.12</td><td><span class="media-badge badge-web">WEB</span></td><td>m3.com</td><td>病院ゆるキャラ総選挙2024 レポート</td><td></td></tr>
+          <tr><td>2024.09</td><td><span class="media-badge badge-tv">動画</span></td><td>YouTube「わたしポップ」</td><td>地域活動出演</td><td><a href="https://youtu.be/tS4UPz6slAk" target="_blank" rel="noopener noreferrer">動画 →</a></td></tr>
+          <tr><td>2024.08</td><td><span class="media-badge badge-web">WEB</span></td><td>ギフジョ！（岐阜県）</td><td>岐阜県女性活躍ポータルサイト掲載</td><td><a href="https://gifujo.pref.gifu.lg.jp/message/2024/08/post-437.html" target="_blank" rel="noopener noreferrer">記事 →</a></td></tr>
+          <tr><td>2024.06</td><td><span class="media-badge badge-news">新聞</span></td><td>岐阜新聞・中日新聞</td><td>大垣東中学校出前授業</td><td><a href="https://news.goo.ne.jp/article/chuplus/region/chuplus-910256.html" target="_blank" rel="noopener noreferrer">goo →</a></td></tr>
+          <tr><td>2024.06</td><td><span class="media-badge badge-tv">テレビ</span></td><td>CCN</td><td>長良中学校SDGs授業 放映</td><td><a href="https://www.youtube.com/watch?v=b_yGFeBEt1A" target="_blank" rel="noopener noreferrer">動画 →</a></td></tr>
+          <tr><td>2024.05</td><td><span class="media-badge badge-web">WEB</span></td><td>Yahoo!ニュース</td><td>地域活動掲載</td><td><a href="https://news.yahoo.co.jp/articles/dbc04d449e3c9f9110335a832a9321a9983f267e" target="_blank" rel="noopener noreferrer">記事 →</a></td></tr>
+          <tr><td>2024.05</td><td><span class="media-badge badge-web">WEB</span></td><td>ZDNET Japan</td><td>掲載</td><td><a href="https://japan.zdnet.com/article/35218156/" target="_blank" rel="noopener noreferrer">記事 →</a></td></tr>
+          <tr><td>2024.03</td><td><span class="media-badge badge-radio">ラジオ</span></td><td>FM GIFU</td><td>「オール岐阜でSDGsリレー」出演</td><td><a href="https://www.fmgifu.com/blog/detail_18591_3_0_202403.html" target="_blank" rel="noopener noreferrer">詳細 →</a></td></tr>
+          <tr><td>常設</td><td><span class="media-badge badge-radio">ラジオ</span></td><td>なごひかラジオ</td><td>パーソナリティ（和光会100周年）</td><td><a href="https://100th.wakokai.or.jp/radio/" target="_blank" rel="noopener noreferrer">聴く →</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- プロジェクト -->
+<section class="projects" id="projects">
+  <div class="container">
+    <p class="section-eyebrow">Projects</p>
+    <h2 class="section-title">プロジェクト</h2>
+    <div class="flower-divider">— ✿ —</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="images/radio.JPEG" alt="なごひかラジオ" class="project-img">
+        <div class="project-body">
+          <span class="project-tag">Radio</span>
+          <h3 class="project-title">なごひかラジオ</h3>
+          <p class="project-desc">医療・福祉に限らず、地域で活躍するさまざまなゲストを招き、その魅力や活動を発信するラジオ番組のパーソナリティを担当。</p>
+          <a href="https://100th.wakokai.or.jp/radio/" target="_blank" rel="noopener noreferrer" class="project-link">番組を聴く →</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/media-gifu-2024.png" alt="なごみちゃん・ひかるちゃん" class="project-img" style="object-position:top;">
+        <div class="project-body">
+          <span class="project-tag">Character</span>
+          <h3 class="project-title">なごみちゃん・ひかるちゃん</h3>
+          <p class="project-desc">病院公式キャラクター。病院ゆるキャラ総選挙全国3位。健康づくり・SDGs啓発・地域交流イベントなどで活動中。</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/achiev-school.jpg" alt="SDGs活動" class="project-img" style="object-position:center 40%;">
+        <div class="project-body">
+          <span class="project-tag">SDGs</span>
+          <h3 class="project-title">SDGs推進活動</h3>
+          <p class="project-desc">学校での出前授業、イオンモールでの啓発活動、障がい者就労支援との連携、企業との共創プロジェクトを多数展開。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- お問い合わせ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-eyebrow">Contact</p>
+      <h2 class="section-title">お問い合わせ</h2>
+      <div class="flower-divider">— ✿ —</div>
+      <p class="section-lead">講演・取材・見学・コラボレーションのご依頼など、<br>お気軽にご連絡ください。</p>
+      <a href="mailto:m.suzuki003300@gmail.com" class="contact-btn">✉ メールでお問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 <span>鈴木 未沙</span>. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
