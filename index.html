@@ -215,32 +215,32 @@
     .hero-right {
       position: relative; overflow: hidden; z-index: 1;
       display: flex; align-items: center; justify-content: center;
-      padding: 80px 60px;
+      padding: 60px 48px;
     }
     .hero-photo-outer {
       position: relative;
     }
     .hero-photo-bg {
-      position: absolute; inset: -20px;
-      background: radial-gradient(ellipse, rgba(122,158,126,0.15) 0%, transparent 70%);
+      position: absolute; inset: -30px;
+      background: radial-gradient(ellipse, rgba(122,158,126,0.18) 0%, transparent 70%);
       border-radius: 50%;
-      filter: blur(20px);
+      filter: blur(24px);
     }
     .hero-photo-frame {
-      width: min(400px, 85%);
-      aspect-ratio: 3/4;
-      border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
+      width: min(460px, 92%);
+      aspect-ratio: 4/5;
+      border-radius: 44% 56% 42% 58% / 50% 46% 54% 50%;
       overflow: hidden;
       box-shadow:
         0 24px 64px rgba(52,44,36,0.14),
-        0 0 0 6px rgba(254,252,248,0.9),
-        0 0 0 10px rgba(200,222,202,0.5),
-        0 0 0 14px rgba(201,168,76,0.15);
+        0 0 0 6px rgba(254,252,248,0.92),
+        0 0 0 10px rgba(200,222,202,0.55),
+        0 0 0 15px rgba(201,168,76,0.18);
       position: relative; z-index: 1;
     }
     .hero-photo-frame img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: top center;
+      object-fit: cover; object-position: center 15%;
     }
     /* 水彩ボタニカル装飾（CSS描画） */
     .hero-botanical {
@@ -613,6 +613,15 @@
       gap: 16px; margin-bottom: 16px; opacity: 0.35;
     }
 
+    /* ===== ボタニカル共通 ===== */
+    .section-botanical {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      animation: wc-fade-in 1.8s ease 0.5s forwards;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
@@ -753,6 +762,33 @@
 <section class="profile-section" id="profile">
   <div class="wc-splash profile-wc-1"></div>
   <div class="wc-splash profile-wc-2"></div>
+
+  <!-- ボタニカル：右上 ダリア風の花 -->
+  <div class="section-botanical" style="top:-30px;right:-20px;width:200px;opacity:0;">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:wc-fade-in 1.8s ease 0.6s forwards;opacity:0;">
+      <!-- ダリア花びら -->
+      <g opacity="0.28" transform="translate(100,100)">
+        <ellipse rx="8" ry="28" fill="#b87a72" transform="rotate(0)"/>
+        <ellipse rx="8" ry="28" fill="#c4867a" transform="rotate(30)"/>
+        <ellipse rx="8" ry="28" fill="#b87a72" transform="rotate(60)"/>
+        <ellipse rx="8" ry="28" fill="#c4867a" transform="rotate(90)"/>
+        <ellipse rx="8" ry="28" fill="#b87a72" transform="rotate(120)"/>
+        <ellipse rx="8" ry="28" fill="#c4867a" transform="rotate(150)"/>
+        <ellipse rx="7" ry="22" fill="#d4a090" transform="rotate(15)"/>
+        <ellipse rx="7" ry="22" fill="#c4867a" transform="rotate(45)"/>
+        <ellipse rx="7" ry="22" fill="#d4a090" transform="rotate(75)"/>
+        <ellipse rx="7" ry="22" fill="#c4867a" transform="rotate(105)"/>
+        <ellipse rx="7" ry="22" fill="#d4a090" transform="rotate(135)"/>
+        <ellipse rx="7" ry="22" fill="#c4867a" transform="rotate(165)"/>
+        <circle r="10" fill="#c9a84c" opacity="0.7"/>
+        <circle r="6" fill="#d4b85a" opacity="0.8"/>
+      </g>
+      <!-- 葉 -->
+      <ellipse cx="58" cy="148" rx="18" ry="9" fill="#6b9970" opacity="0.35" transform="rotate(-40 58 148)"/>
+      <ellipse cx="80" cy="162" rx="16" ry="8" fill="#7aaa82" opacity="0.3" transform="rotate(-20 80 162)"/>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="profile-grid">
       <div class="profile-photo-wrap">
@@ -808,6 +844,21 @@
 <section class="awards-section" id="awards">
   <div class="wc-splash awards-wc-1"></div>
   <div class="wc-splash awards-wc-2"></div>
+
+  <!-- ボタニカル：左下 ユーカリ小枝 -->
+  <div class="section-botanical" style="bottom:-10px;left:-15px;width:160px;opacity:0;">
+    <svg viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:wc-fade-in 1.8s ease 0.5s forwards;opacity:0;transform:rotate(-10deg);">
+      <path d="M80 170 Q72 130 60 100 Q48 70 30 40" stroke="#6b9970" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.6"/>
+      <ellipse cx="64" cy="120" rx="17" ry="10" fill="#8ab89a" opacity="0.4" transform="rotate(25 64 120)"/>
+      <ellipse cx="52" cy="96" rx="16" ry="9" fill="#6b9970" opacity="0.38" transform="rotate(35 52 96)"/>
+      <ellipse cx="42" cy="72" rx="15" ry="9" fill="#8ab89a" opacity="0.38" transform="rotate(40 42 72)"/>
+      <ellipse cx="34" cy="50" rx="13" ry="8" fill="#6b9970" opacity="0.35" transform="rotate(45 34 50)"/>
+      <circle cx="63" cy="114" r="2.5" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="51" cy="90" r="2" fill="#c9a84c" opacity="0.45"/>
+      <circle cx="41" cy="66" r="2" fill="#c9a84c" opacity="0.42"/>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="section-header">
       <p class="section-script">Awards</p>
@@ -852,6 +903,30 @@
 <!-- 主な実績 -->
 <section class="achievements" id="achievements">
   <div class="wc-splash achiev-wc-1"></div>
+
+  <!-- ボタニカル：右端中央 カスミソウ+バラ -->
+  <div class="section-botanical" style="right:-10px;top:12%;width:140px;opacity:0;">
+    <svg viewBox="0 0 140 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:wc-fade-in 1.8s ease 0.7s forwards;opacity:0;">
+      <!-- バラ小 -->
+      <g opacity="0.32" transform="translate(70,50)">
+        <path d="M0 -18 Q-10 -8 -11 2 Q-8 14 0 16 Q8 14 11 2 Q10 -8 0 -18Z" fill="#b87a72"/>
+        <path d="M-14 -4 Q-18 6 -12 12 Q-4 16 0 12 Q-2 4 -10 -2Z" fill="#c4867a" opacity="0.8"/>
+        <path d="M14 -4 Q18 6 12 12 Q4 16 0 12 Q2 4 10 -2Z" fill="#b87a72" opacity="0.8"/>
+        <circle r="5" fill="#c9a84c" opacity="0.6"/>
+      </g>
+      <!-- カスミソウ枝 -->
+      <path d="M70 75 Q60 110 40 140 Q55 125 70 145 Q85 125 100 140 Q80 110 70 75Z" stroke="#9ab49a" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <circle cx="40" cy="142" r="3" fill="#f0e8e4" opacity="0.65"/>
+      <circle cx="70" cy="148" r="3.5" fill="#f0e8e4" opacity="0.7"/>
+      <circle cx="100" cy="142" r="3" fill="#f0e8e4" opacity="0.65"/>
+      <circle cx="52" cy="158" r="2.5" fill="#f0e8e4" opacity="0.6"/>
+      <circle cx="88" cy="158" r="2.5" fill="#f0e8e4" opacity="0.6"/>
+      <circle cx="70" cy="168" r="3" fill="#f0e8e4" opacity="0.65"/>
+      <circle cx="44" cy="172" r="2" fill="#f0e8e4" opacity="0.55"/>
+      <circle cx="96" cy="172" r="2" fill="#f0e8e4" opacity="0.55"/>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="section-header">
       <p class="section-script">Achievements</p>
@@ -904,6 +979,22 @@
 <section class="speaking" id="speaking">
   <div class="wc-splash speaking-wc-1"></div>
   <div class="wc-splash speaking-wc-2"></div>
+
+  <!-- ボタニカル：左上 葉っぱクラスター -->
+  <div class="section-botanical" style="top:-20px;left:-20px;width:180px;opacity:0;">
+    <svg viewBox="0 0 180 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:wc-fade-in 1.8s ease 0.5s forwards;opacity:0;">
+      <path d="M20 140 Q50 80 120 30" stroke="#5a7d5e" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <!-- 大きめの葉 -->
+      <path d="M65 95 Q45 70 55 50 Q75 45 80 70 Q82 85 65 95Z" fill="#7aaa82" opacity="0.38"/>
+      <path d="M65 95 Q75 72 80 70" stroke="#5a7d5e" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <path d="M90 70 Q72 48 80 28 Q98 22 102 46 Q104 60 90 70Z" fill="#6b9970" opacity="0.35"/>
+      <path d="M90 70 Q96 48 102 46" stroke="#5a7d5e" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <!-- 小さい葉 -->
+      <ellipse cx="38" cy="115" rx="13" ry="7" fill="#8ab89a" opacity="0.32" transform="rotate(-50 38 115)"/>
+      <ellipse cx="118" cy="40" rx="11" ry="6" fill="#7aaa82" opacity="0.3" transform="rotate(-20 118 40)"/>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="section-header">
       <p class="section-script">Speaking</p>
@@ -999,6 +1090,46 @@
 <section class="contact-section" id="contact">
   <div class="wc-splash contact-wc-1"></div>
   <div class="wc-splash contact-wc-2"></div>
+
+  <!-- ボタニカル：左 バラ枝 -->
+  <div class="section-botanical" style="left:-10px;top:50%;transform:translateY(-50%);width:130px;opacity:0;">
+    <svg viewBox="0 0 130 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:wc-fade-in 1.8s ease 0.4s forwards;opacity:0;">
+      <path d="M65 270 Q55 220 50 170 Q45 120 60 70 Q65 40 80 20" stroke="#6b9970" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.55"/>
+      <!-- バラ -->
+      <g opacity="0.35" transform="translate(65,55)">
+        <path d="M0 -20 Q-12 -9 -12 3 Q-9 16 0 18 Q9 16 12 3 Q12 -9 0 -20Z" fill="#b87a72"/>
+        <path d="M-15 -3 Q-20 8 -14 14 Q-5 18 0 14 Q-2 5 -12 -1Z" fill="#c4867a" opacity="0.85"/>
+        <path d="M15 -3 Q20 8 14 14 Q5 18 0 14 Q2 5 12 -1Z" fill="#b87a72" opacity="0.85"/>
+        <path d="M-8 -14 Q-14 -6 -12 2 Q-6 6 0 2 Q0 -6 -8 -14Z" fill="#d4a090" opacity="0.7"/>
+        <path d="M8 -14 Q14 -6 12 2 Q6 6 0 2 Q0 -6 8 -14Z" fill="#c4867a" opacity="0.7"/>
+        <circle r="6" fill="#c9a84c" opacity="0.65"/>
+        <circle r="3.5" fill="#d4b85a" opacity="0.75"/>
+      </g>
+      <!-- 葉 -->
+      <ellipse cx="50" cy="130" rx="18" ry="9" fill="#6b9970" opacity="0.38" transform="rotate(20 50 130)"/>
+      <ellipse cx="72" cy="110" rx="16" ry="8" fill="#7aaa82" opacity="0.35" transform="rotate(-15 72 110)"/>
+      <ellipse cx="48" cy="185" rx="15" ry="8" fill="#8ab89a" opacity="0.32" transform="rotate(25 48 185)"/>
+      <!-- カスミソウ小 -->
+      <circle cx="78" cy="160" r="3" fill="#f0e8e4" opacity="0.6"/>
+      <circle cx="88" cy="172" r="2.5" fill="#f0e8e4" opacity="0.55"/>
+      <circle cx="72" cy="176" r="2" fill="#f0e8e4" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <!-- ボタニカル：右 ユーカリ小枝 -->
+  <div class="section-botanical" style="right:-10px;top:50%;transform:translateY(-50%);width:120px;opacity:0;">
+    <svg viewBox="0 0 120 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation:wc-fade-in 1.8s ease 0.6s forwards;opacity:0;transform:scaleX(-1);">
+      <path d="M60 230 Q52 180 45 140 Q38 100 50 60 Q55 35 70 15" stroke="#6b9970" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <ellipse cx="48" cy="155" rx="16" ry="9" fill="#8ab89a" opacity="0.38" transform="rotate(20 48 155)"/>
+      <ellipse cx="44" cy="122" rx="15" ry="9" fill="#6b9970" opacity="0.36" transform="rotate(28 44 122)"/>
+      <ellipse cx="48" cy="92" rx="14" ry="8" fill="#8ab89a" opacity="0.36" transform="rotate(32 48 92)"/>
+      <ellipse cx="56" cy="65" rx="12" ry="7" fill="#6b9970" opacity="0.33" transform="rotate(25 56 65)"/>
+      <circle cx="47" cy="148" r="2.2" fill="#c9a84c" opacity="0.45"/>
+      <circle cx="43" cy="116" r="2" fill="#c9a84c" opacity="0.42"/>
+      <circle cx="47" cy="86" r="1.8" fill="#c9a84c" opacity="0.4"/>
+    </svg>
+  </div>
+
   <div class="container">
     <div class="contact-inner">
       <p class="contact-script">Contact</p>
