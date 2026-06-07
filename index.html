@@ -6,26 +6,30 @@
   <title>鈴木未沙</title>
   <meta name="description" content="病院広報・SDGs・地域共創をテーマに活動。病院ファンづくり甲子園優勝、全国ワークスタイル変革大賞大賞など、医療と地域をつなぐ取り組みを発信しています。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --sage:        #7a9e7e;
-      --sage-mid:    #5a7d5e;
-      --sage-pale:   #eef5ee;
-      --sage-wash:   #d4e6d5;
-      --dusty-rose:  #c4867a;
+      --sage:        #6b9970;
+      --sage-mid:    #4e7554;
+      --sage-pale:   #eaf2ea;
+      --sage-wash:   #c8deca;
+      --dusty-rose:  #b87a72;
       --rose-pale:   #f5e8e5;
-      --gold:        #c9a84c;
-      --gold-light:  #e0c878;
-      --cream:       #faf7f2;
-      --ivory:       #fefcf8;
-      --warm-white:  #fffdf9;
-      --charcoal:    #3a3028;
-      --gray-warm:   #6e6258;
-      --gray-light:  #a09588;
-      --border:      #e8dfd6;
+      --gold:        #b8933a;
+      --gold-light:  #d4b25c;
+      --gold-foil:   #c9a84c;
+      --cream:       #faf7f0;
+      --ivory:       #fefcf6;
+      --warm-white:  #fffdf8;
+      --charcoal:    #342c24;
+      --gray-warm:   #675c52;
+      --gray-light:  #9a8e84;
+      --border:      #e4d8cc;
+      --wc-blue:     #8ab8cc;
+      --wc-teal:     #7aadb0;
+      --wc-yellow:   #d4c070;
     }
 
     html { scroll-behavior: smooth; }
@@ -36,16 +40,52 @@
       background: var(--ivory);
     }
 
+    /* ===== 游明朝 ===== */
+    .hero-name, .section-title, .contact-title, .achiev-title, .project-title,
+    .profile-body h3, .speaking-theme {
+      font-family: '游明朝', 'Yu Mincho', 'Noto Serif JP', 'Playfair Display', serif;
+    }
+
     /* ===== 水彩スプラッシュ装飾 ===== */
     .wc-splash {
       position: absolute;
       border-radius: 50%;
-      filter: blur(60px);
+      filter: blur(55px);
       pointer-events: none;
       opacity: 0;
-      animation: wc-fade-in 1.2s ease forwards;
+      animation: wc-fade-in 1.6s ease forwards;
     }
     @keyframes wc-fade-in { to { opacity: 1; } }
+
+    /* ===== ボタニカルSVG装飾 ===== */
+    .botanical-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes botanical-sway {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(2deg) scale(1.02); }
+    }
+    .botanical-deco svg {
+      animation: botanical-sway 8s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    /* ===== ゴールドサークル装飾 ===== */
+    .gold-circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .gold-circle-outer {
+      border: 1px solid rgba(201,168,76,0.25);
+      box-shadow: inset 0 0 0 6px rgba(201,168,76,0.06), 0 0 40px rgba(201,168,76,0.08);
+    }
+    .gold-circle-inner {
+      border: 1px dashed rgba(201,168,76,0.2);
+    }
 
     /* ===== NAV ===== */
     nav {
@@ -85,22 +125,42 @@
     }
     /* 水彩にじみ背景 */
     .hero-splash-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(122,158,126,0.28) 0%, rgba(122,158,126,0.06) 60%, transparent 75%);
-      top: -100px; right: -100px;
+      width: 560px; height: 560px;
+      background: radial-gradient(circle,
+        rgba(138,184,204,0.38) 0%,
+        rgba(107,153,112,0.22) 40%,
+        rgba(138,184,204,0.06) 65%,
+        transparent 78%);
+      top: -120px; right: -80px;
       animation-delay: 0s;
     }
     .hero-splash-2 {
-      width: 400px; height: 350px;
-      background: radial-gradient(ellipse, rgba(201,168,76,0.18) 0%, rgba(201,168,76,0.05) 60%, transparent 75%);
-      bottom: 0; left: 10%;
-      animation-delay: 0.3s;
+      width: 460px; height: 400px;
+      background: radial-gradient(ellipse,
+        rgba(212,192,112,0.34) 0%,
+        rgba(201,168,76,0.18) 40%,
+        rgba(212,192,112,0.05) 65%,
+        transparent 78%);
+      bottom: -20px; left: 8%;
+      animation-delay: 0.4s;
     }
     .hero-splash-3 {
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(196,134,122,0.15) 0%, rgba(196,134,122,0.04) 60%, transparent 75%);
-      top: 30%; left: 5%;
-      animation-delay: 0.6s;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle,
+        rgba(122,173,176,0.28) 0%,
+        rgba(107,153,112,0.14) 45%,
+        transparent 70%);
+      top: 28%; left: 3%;
+      animation-delay: 0.7s;
+    }
+    .hero-splash-4 {
+      width: 280px; height: 240px;
+      background: radial-gradient(ellipse,
+        rgba(212,192,112,0.22) 0%,
+        rgba(184,147,58,0.08) 55%,
+        transparent 75%);
+      top: 10%; left: 40%;
+      animation-delay: 1s;
     }
     .hero-left {
       display: flex; flex-direction: column; justify-content: center;
@@ -172,9 +232,10 @@
       border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
       overflow: hidden;
       box-shadow:
-        0 20px 60px rgba(58,48,40,0.12),
-        0 0 0 8px rgba(254,252,248,0.8),
-        0 0 0 12px var(--sage-wash);
+        0 24px 64px rgba(52,44,36,0.14),
+        0 0 0 6px rgba(254,252,248,0.9),
+        0 0 0 10px rgba(200,222,202,0.5),
+        0 0 0 14px rgba(201,168,76,0.15);
       position: relative; z-index: 1;
     }
     .hero-photo-frame img {
@@ -205,16 +266,16 @@
     .section-lead { color: var(--gray-warm); font-size: 0.92rem; max-width: 620px; line-height: 1.9; }
     .wc-divider {
       display: flex; align-items: center; gap: 12px;
-      margin: 16px 0 0; max-width: 280px;
+      margin: 16px 0 0; max-width: 320px;
     }
     .wc-divider-line {
       flex: 1; height: 1px;
       background: linear-gradient(90deg, var(--sage-wash), transparent);
     }
     .wc-divider-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--gold);
+      color: var(--gold); font-size: 0.75rem; line-height: 1;
     }
+    .wc-divider-dot::before { content: '✦'; }
 
     /* ===== PROFILE ===== */
     .profile-section {
@@ -222,13 +283,19 @@
       position: relative; overflow: hidden;
     }
     .profile-wc-1 {
-      width: 450px; height: 400px;
-      background: radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, transparent 65%);
+      width: 480px; height: 420px;
+      background: radial-gradient(ellipse,
+        rgba(138,184,204,0.28) 0%,
+        rgba(201,168,76,0.14) 45%,
+        transparent 68%);
       top: -80px; right: -80px; animation-delay: 0.2s;
     }
     .profile-wc-2 {
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, rgba(122,158,126,0.1) 0%, transparent 65%);
+      width: 380px; height: 360px;
+      background: radial-gradient(circle,
+        rgba(107,153,112,0.2) 0%,
+        rgba(122,173,176,0.1) 50%,
+        transparent 68%);
       bottom: -60px; left: -40px; animation-delay: 0.4s;
     }
     .profile-grid { display: grid; grid-template-columns: 300px 1fr; gap: 72px; align-items: start; }
@@ -294,13 +361,19 @@
       position: relative; overflow: hidden;
     }
     .awards-wc-1 {
-      width: 500px; height: 400px;
-      background: radial-gradient(ellipse, rgba(122,158,126,0.14) 0%, transparent 65%);
+      width: 520px; height: 420px;
+      background: radial-gradient(ellipse,
+        rgba(107,153,112,0.22) 0%,
+        rgba(138,184,204,0.14) 45%,
+        transparent 68%);
       top: -60px; left: -80px; animation-delay: 0.1s;
     }
     .awards-wc-2 {
-      width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle,
+        rgba(212,192,112,0.2) 0%,
+        rgba(201,168,76,0.1) 50%,
+        transparent 68%);
       bottom: -40px; right: -60px; animation-delay: 0.5s;
     }
     .awards-list { display: flex; flex-direction: column; max-width: 880px; position: relative; z-index: 1; }
@@ -386,13 +459,19 @@
       background: linear-gradient(160deg, var(--sage-pale) 0%, var(--cream) 50%, #f8f3ee 100%);
     }
     .speaking-wc-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(122,158,126,0.2) 0%, transparent 65%);
+      width: 520px; height: 520px;
+      background: radial-gradient(circle,
+        rgba(138,184,204,0.3) 0%,
+        rgba(107,153,112,0.18) 40%,
+        transparent 68%);
       top: -100px; right: -100px; animation-delay: 0s;
     }
     .speaking-wc-2 {
-      width: 400px; height: 350px;
-      background: radial-gradient(ellipse, rgba(201,168,76,0.12) 0%, transparent 65%);
+      width: 420px; height: 370px;
+      background: radial-gradient(ellipse,
+        rgba(212,192,112,0.26) 0%,
+        rgba(122,173,176,0.1) 50%,
+        transparent 68%);
       bottom: -50px; left: -50px; animation-delay: 0.4s;
     }
     .speaking-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; position: relative; z-index: 1; }
@@ -519,9 +598,20 @@
 
     footer {
       background: var(--charcoal); color: rgba(255,255,255,0.38);
-      text-align: center; padding: 32px; font-size: 0.76rem; letter-spacing: 0.08em;
+      text-align: center; padding: 40px 32px; font-size: 0.76rem; letter-spacing: 0.08em;
+      position: relative; overflow: hidden;
     }
     footer em { color: rgba(201,168,76,0.6); font-style: normal; }
+    footer::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), rgba(138,184,204,0.2), rgba(201,168,76,0.3), transparent);
+    }
+    .footer-botanical {
+      display: flex; justify-content: center; align-items: center;
+      gap: 16px; margin-bottom: 16px; opacity: 0.35;
+    }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 960px) {
@@ -567,6 +657,51 @@
   <div class="wc-splash hero-splash-1"></div>
   <div class="wc-splash hero-splash-2"></div>
   <div class="wc-splash hero-splash-3"></div>
+  <div class="wc-splash hero-splash-4"></div>
+
+  <!-- ゴールドサークル装飾 -->
+  <div class="gold-circle gold-circle-outer" style="width:480px;height:480px;right:-160px;top:50%;transform:translateY(-50%);"></div>
+  <div class="gold-circle gold-circle-inner" style="width:380px;height:380px;right:-110px;top:50%;transform:translateY(-50%);"></div>
+
+  <!-- ボタニカル装飾 左上：ユーカリ枝 -->
+  <div class="botanical-deco" style="top:-10px;left:-10px;width:220px;opacity:0.45;">
+    <svg viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 180 Q60 120 90 80 Q120 40 180 10" stroke="#6b9970" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <ellipse cx="75" cy="110" rx="20" ry="12" fill="#8ab89a" opacity="0.5" transform="rotate(-30 75 110)"/>
+      <ellipse cx="100" cy="78" rx="18" ry="11" fill="#6b9970" opacity="0.45" transform="rotate(-20 100 78)"/>
+      <ellipse cx="130" cy="52" rx="16" ry="10" fill="#8ab89a" opacity="0.5" transform="rotate(-15 130 52)"/>
+      <ellipse cx="160" cy="28" rx="14" ry="9" fill="#6b9970" opacity="0.4" transform="rotate(-10 160 28)"/>
+      <ellipse cx="55" cy="138" rx="17" ry="10" fill="#7aaa82" opacity="0.45" transform="rotate(-40 55 138)"/>
+      <circle cx="92" cy="72" r="3" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="122" cy="46" r="2.5" fill="#c9a84c" opacity="0.45"/>
+      <circle cx="152" cy="23" r="2" fill="#c9a84c" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <!-- ボタニカル装飾 右下：バラ + カスミソウ -->
+  <div class="botanical-deco" style="bottom:-20px;right:42%;width:180px;opacity:0.38;transform:rotate(10deg);">
+    <svg viewBox="0 0 180 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- バラ -->
+      <circle cx="90" cy="60" r="22" fill="#c9a04a" opacity="0.15"/>
+      <path d="M90 42 Q80 50 78 62 Q80 74 90 78 Q100 74 102 62 Q100 50 90 42Z" fill="#b87a72" opacity="0.5"/>
+      <path d="M72 55 Q68 65 74 72 Q82 76 90 72 Q88 62 80 56Z" fill="#c4867a" opacity="0.45"/>
+      <path d="M108 55 Q112 65 106 72 Q98 76 90 72 Q92 62 100 56Z" fill="#b87a72" opacity="0.4"/>
+      <path d="M78 46 Q70 52 74 60 Q78 64 86 60 Q84 52 78 46Z" fill="#c4867a" opacity="0.35"/>
+      <path d="M102 46 Q110 52 106 60 Q102 64 94 60 Q96 52 102 46Z" fill="#b87a72" opacity="0.35"/>
+      <!-- 葉 -->
+      <path d="M75 72 Q60 90 65 105" stroke="#6b9970" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <ellipse cx="62" cy="92" rx="12" ry="7" fill="#7aaa82" opacity="0.45" transform="rotate(30 62 92)"/>
+      <!-- カスミソウ -->
+      <circle cx="40" cy="110" r="3" fill="#e8d8cc" opacity="0.7"/>
+      <circle cx="52" cy="118" r="2.5" fill="#e8d8cc" opacity="0.65"/>
+      <circle cx="32" cy="124" r="2" fill="#e8d8cc" opacity="0.6"/>
+      <circle cx="58" cy="130" r="3" fill="#e8d8cc" opacity="0.65"/>
+      <circle cx="44" cy="138" r="2.5" fill="#e8d8cc" opacity="0.6"/>
+      <circle cx="68" cy="122" r="2" fill="#e8d8cc" opacity="0.55"/>
+      <path d="M50 80 Q42 100 40 115" stroke="#9ab49a" stroke-width="1" fill="none" opacity="0.5"/>
+      <path d="M50 80 Q55 105 58 125" stroke="#9ab49a" stroke-width="1" fill="none" opacity="0.5"/>
+    </svg>
+  </div>
 
   <div class="hero-left">
     <p class="hero-script">Hospital Branding & SDGs</p>
@@ -876,6 +1011,27 @@
 </section>
 
 <footer>
+  <div class="footer-botanical">
+    <svg width="80" height="24" viewBox="0 0 80 24" fill="none">
+      <path d="M2 12 Q20 4 40 12 Q60 20 78 12" stroke="#c9a84c" stroke-width="1" fill="none"/>
+      <ellipse cx="20" cy="8" rx="6" ry="3.5" fill="#7aaa82" transform="rotate(-20 20 8)"/>
+      <ellipse cx="40" cy="12" rx="5" ry="3" fill="#7aaa82"/>
+      <ellipse cx="60" cy="8" rx="6" ry="3.5" fill="#7aaa82" transform="rotate(20 60 8)"/>
+      <circle cx="14" cy="11" r="1.5" fill="#c9a84c"/>
+      <circle cx="40" cy="6" r="1.5" fill="#c9a84c"/>
+      <circle cx="66" cy="11" r="1.5" fill="#c9a84c"/>
+    </svg>
+    <span style="color:rgba(201,168,76,0.5);font-size:1rem;">✦</span>
+    <svg width="80" height="24" viewBox="0 0 80 24" fill="none" style="transform:scaleX(-1)">
+      <path d="M2 12 Q20 4 40 12 Q60 20 78 12" stroke="#c9a84c" stroke-width="1" fill="none"/>
+      <ellipse cx="20" cy="8" rx="6" ry="3.5" fill="#7aaa82" transform="rotate(-20 20 8)"/>
+      <ellipse cx="40" cy="12" rx="5" ry="3" fill="#7aaa82"/>
+      <ellipse cx="60" cy="8" rx="6" ry="3.5" fill="#7aaa82" transform="rotate(20 60 8)"/>
+      <circle cx="14" cy="11" r="1.5" fill="#c9a84c"/>
+      <circle cx="40" cy="6" r="1.5" fill="#c9a84c"/>
+      <circle cx="66" cy="11" r="1.5" fill="#c9a84c"/>
+    </svg>
+  </div>
   <p>&copy; 2026 <em>鈴木 未沙</em>. All Rights Reserved.</p>
 </footer>
 
