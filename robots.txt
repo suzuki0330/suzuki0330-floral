@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://suzuki0330.github.io/suzuki0330-floral/sitemap.xml
